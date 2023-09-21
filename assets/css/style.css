@@ -1,0 +1,53 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins";
+    margin-bottom:10px;
+}
+
+.page_404
+{
+    padding: 10px 0;
+    background: #fff;
+    font-family: 'Poppins';
+    margin-bottom:10px;
+}
+
+.course img
+{
+    width: 100%;
+}
+
+img
+{
+    border-radius: 10px;
+    width: 100%;
+    margin-top:100px;
+}
+
+.four_zero_four_bg
+{
+    background: url('../images/bg.gif');
+    margin-top: 200px;
+    height: 500px;
+    background-position: center;
+}
+
+h1
+{
+    font-size: 60px;
+}
+
+h3
+{
+    font-size: 50px;
+    text-align: center;
+}
+
+.content_box_404
+{
+    margin-top: -100px;
+}
+

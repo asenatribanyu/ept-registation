@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="w.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   id="svg32"
+   version="1.1"
+   viewBox="0 0 9 9"
+   height="9mm"
+   width="9mm">
+  <defs
+     id="defs26">
+    <rect
+       id="rect58"
+       height="17.445181"
+       width="17.410431"
+       y="-3.6141412"
+       x="-3.4403844" />
+    <rect
+       x="104.73612"
+       y="129.56245"
+       width="22.498871"
+       height="22.498871"
+       id="rect14" />
+    <rect
+       x="104.73612"
+       y="129.56245"
+       width="22.498871"
+       height="22.498871"
+       id="rect43" />
+    <rect
+       id="rect14-8"
+       height="22.498871"
+       width="22.498871"
+       y="129.56245"
+       x="104.73612" />
+    <rect
+       id="rect43-3"
+       height="22.498871"
+       width="22.498871"
+       y="129.56245"
+       x="104.73612" />
+    <rect
+       id="rect14-9"
+       height="22.498871"
+       width="22.498871"
+       y="129.56245"
+       x="104.73612" />
+    <rect
+       id="rect73"
+       height="22.498871"
+       width="22.498871"
+       y="129.56245"
+       x="104.73612" />
+    <rect
+       x="104.73612"
+       y="129.56245"
+       width="22.498871"
+       height="22.498871"
+       id="rect14-9-2" />
+    <rect
+       x="104.73612"
+       y="129.56245"
+       width="22.498871"
+       height="22.498871"
+       id="rect2898" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:window-maximized="0"
+     inkscape:window-y="0"
+     inkscape:window-x="208"
+     inkscape:window-height="1041"
+     inkscape:window-width="1366"
+     inkscape:snap-global="false"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="cm"
+     inkscape:cy="13.374976"
+     inkscape:cx="6.8417553"
+     inkscape:zoom="10.767273"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata29">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Lapis 1">
+    <text
+       transform="matrix(1.0284463,0,0,1.0284463,-104.98242,-135.58202)"
+       xml:space="preserve"
+       id="text12"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.2889px;line-height:1.25;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';white-space:pre;shape-inside:url(#rect14);fill:#5c53c0;fill-opacity:0.898305;"
+       inkscape:export-xdpi="44"
+       inkscape:export-ydpi="44"><tspan
+         x="104.73633"
+         y="139.93947"><tspan
+           style="font-size:11.2889px;fill:#5c53c0;fill-opacity:0.898305">U</tspan></tspan></text>
+    <text
+       transform="matrix(1.0284463,0,0,1.0284463,-108.27125,-135.55623)"
+       xml:space="preserve"
+       id="text12-8-8"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.2889px;line-height:1.25;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, ';white-space:pre;shape-inside:url(#rect14-9-2);fill:#7367f0;fill-opacity:0.867797;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal;"
+       inkscape:export-xdpi="44"
+       inkscape:export-ydpi="44"><tspan
+         x="104.73633"
+         y="139.93947"><tspan
+           style="font-size:11.2889px;fill:#7367f0;fill-opacity:0.867797;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal">U</tspan></tspan></text>
+    <text
+       style="font-size:3.175px;line-height:1.25;font-family:NSimSun;-inkscape-font-specification:'NSimSun, Normal';white-space:pre;shape-inside:url(#rect58);"
+       id="text56"
+       xml:space="preserve" />
+  </g>
+</svg>
