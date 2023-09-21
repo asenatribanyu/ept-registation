@@ -10,7 +10,6 @@
 		</div>
 	</div>
 </header>
-
 <div class="card card-body blur shadow-blur mx-2 mx-md-3 mt-n6">
 	<form method="post" action="<?php echo base_url('admin/peserta/peserta/deletee') ?>" id="form-delete">
 		<div class="data-tables datatable-dark">
@@ -32,18 +31,18 @@
 				</thead>
 				<tbody>
 					<?php
-					$no = 1;
-					foreach ($tbl_peserta as $p) : ?>
+					$no = $this->uri->segment(5)+1 ?? 0;
+					foreach ($records as $p) : ?>
 						<tr style="text-align: center;">
 							<td><input type='checkbox' class='check-item' name='id_peserta[]' value='<?php echo $p->id_peserta ?>'></td>
 							<td width="20px"><?php echo $no++ ?></td>
-							<td><?php echo $p->nama ?></td>
-							<td><?php echo $p->statuss ?></td>
-							<td><?php echo $p->npmm ?></td>
-							<td><?php echo $p->emaill ?></td>
-							<td><?php echo $p->nohp ?></td>
-							<td><?php echo $p->fakultas ?></td>
-							<td><?php echo $p->prodi ?></td>
+							<td><?php echo $p->nama_peserta ?></td>
+							<td><?php echo $p->status ?></td>
+							<td><?php echo $p->npm ?></td>
+							<td><?php echo $p->email ?></td>
+							<td><?php echo $p->no_hp ?></td>
+							<td><?php echo $p->nama_fakultas ?></td>
+							<td><?php echo $p->nama_prodi ?></td>
 							<td><?php echo $p->waktu_input ?></td>
 							<td style="text-align: center;">
 								<a href="<?php echo base_url(); ?>admin/peserta/peserta/update/<?php echo $p->id_peserta; ?>" class="btn btn-sm btn-primary update-button"><i class="fa fa-edit"></i></a>
@@ -60,6 +59,9 @@
 				</svg>
 			</button>
 		</div>
+		<div class="pagination">
+   <?php echo $pagination; ?>
+</div>
 	</form>
 </div>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

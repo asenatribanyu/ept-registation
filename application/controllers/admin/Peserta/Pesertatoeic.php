@@ -15,7 +15,29 @@ class Pesertatoeic extends CI_Controller
 
     public function index()
     {
-        $data['tbl_peserta_toeic'] = $this->Datapeserta_modeltoeic->getAll()->result();
+        $this->load->library('pagination');
+		$config['base_url'] = base_url('admin/peserta/pesertatoeic/index'); // URL to the pagination page
+		$config['total_rows'] = $this->Datapeserta_modeltoeic->count_all(); // Total number of records
+		$config['per_page'] = 10; // Number of records to show per page
+
+		// Styling for the pagination links
+		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['prev_tag_open'] = '<li class="prev">';
+		$config['prev_tag_close'] = '</li>';
+		$config['next_tag_open'] = '<li class="next">';
+		$config['next_tag_close'] = '</li>';
+		$config['cur_tag_open'] = '<li class="active"><a href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+
+		$this->pagination->initialize($config);
+		$page = $this->uri->segment(5);
+		$data['records'] = $this->Datapeserta_modeltoeic->get_records($config['per_page'], $page);
+		$data['pagination'] = $this->pagination->create_links();
+
+        // $data['tbl_peserta_toeic'] = $this->Datapeserta_modeltoeic->getAll()->result();
         $this->load->view('tampilan/headertoeic');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/peserta/view/viewpesertatoeic', $data);

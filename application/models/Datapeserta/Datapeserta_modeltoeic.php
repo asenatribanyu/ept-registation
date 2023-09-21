@@ -2,6 +2,25 @@
 
 class Datapeserta_modeltoeic extends CI_Model
 {
+    public function get_records($limit, $offset) {
+		$this->db->select('tbl_peserta_toeic.nama_peserta, tbl_peserta_toeic.id_peserta_toeic, tbl_prodi.nama_prodi, tbl_fakultas.nama_fakultas, tbl_peserta_toeic.status, tbl_peserta_toeic.npm, tbl_peserta_toeic.email, tbl_peserta_toeic.no_hp, tbl_peserta_toeic.id_fakultas, tbl_peserta_toeic.id_prodi, tbl_peserta_toeic.waktu_input');
+		$this->db->from('tbl_peserta_toeic');
+		$this->db->join('tbl_fakultas', 'tbl_peserta_toeic.id_fakultas = tbl_fakultas.id_fakultas');
+		$this->db->join('tbl_prodi', 'tbl_peserta_toeic.id_prodi = tbl_prodi.id_prodi');
+		$this->db->limit($limit, $offset);
+		$query = $this->db->get();
+	
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return array();
+		}
+	}
+
+    public function count_all() {
+        // Query to count the total number of records in the table
+        return $this->db->count_all('tbl_peserta_toeic');
+    }
     public function getAll()
     {
         return $this->db->query("

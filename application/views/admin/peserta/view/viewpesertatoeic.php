@@ -33,18 +33,18 @@
                 </thead>
                 <tbody>
                     <?php
-                    $no = 1;
-                    foreach ($tbl_peserta_toeic as $p) : ?>
+                    $no = $this->uri->segment(5)+1 ?? 0;
+                    foreach ($records as $p) : ?>
                         <tr style="text-align: center;">
                             <td><input type='checkbox' class='check-item' name='id_peserta_toeic[]' value='<?php echo $p->id_peserta_toeic ?>'></td>
                             <td width="20px"><?php echo $no++ ?></td>
-                            <td><?php echo $p->nama ?></td>
-                            <td><?php echo $p->statuss ?></td>
-                            <td><?php echo $p->npmm ?></td>
-                            <td><?php echo $p->emaill ?></td>
-                            <td><?php echo $p->nohp ?></td>
-                            <td><?php echo $p->fakultas ?></td>
-                            <td><?php echo $p->prodi ?></td>
+                            <td><?php echo $p->nama_peserta ?></td>
+                            <td><?php echo $p->status ?></td>
+                            <td><?php echo $p->npm ?></td>
+                            <td><?php echo $p->email ?></td>
+                            <td><?php echo $p->no_hp ?></td>
+                            <td><?php echo $p->nama_fakultas ?></td>
+                            <td><?php echo $p->nama_prodi ?></td>
                             <td style="text-align: center;">
                                 <a href="<?php echo base_url(); ?>admin/peserta/pesertatoeic/update/<?php echo $p->id_peserta_toeic; ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
                                 <a href="<?php echo base_url(); ?>admin/peserta/pesertatoeic/delete/<?php echo $p->id_peserta_toeic; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
@@ -56,5 +56,8 @@
             <h6><input type="checkbox" id="check-all"> check all</h6>
             <button type="button" id="btn-delete" class="btn btn-danger mb-5"><i class="fa fa-trash"></i> Delete</button>
         </div>
+        <div class="pagination">
+   <?php echo $pagination; ?>
+</div>
     </form>
 </div>

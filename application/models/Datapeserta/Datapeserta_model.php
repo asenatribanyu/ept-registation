@@ -2,6 +2,25 @@
 
 class Datapeserta_model extends CI_Model
 {
+	public function get_records($limit, $offset) {
+		$this->db->select('tbl_peserta.nama_peserta, tbl_peserta.id_peserta, tbl_prodi.nama_prodi, tbl_fakultas.nama_fakultas, tbl_peserta.status, tbl_peserta.npm, tbl_peserta.email, tbl_peserta.no_hp, tbl_peserta.id_fakultas, tbl_peserta.id_prodi, tbl_peserta.waktu_input');
+		$this->db->from('tbl_peserta');
+		$this->db->join('tbl_fakultas', 'tbl_peserta.id_fakultas = tbl_fakultas.id_fakultas');
+		$this->db->join('tbl_prodi', 'tbl_peserta.id_prodi = tbl_prodi.id_prodi');
+		$this->db->limit($limit, $offset);
+		$query = $this->db->get();
+	
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return array();
+		}
+	}
+
+    public function count_all() {
+        // Query to count the total number of records in the table
+        return $this->db->count_all('tbl_peserta');
+    }
 	public function getAll()
 	{
 		return $this->db->query("
