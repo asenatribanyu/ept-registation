@@ -17,7 +17,7 @@ class Peserta extends CI_Controller
 	{
 		$this->load->library('pagination');
 		$config['base_url'] = base_url('admin/peserta/peserta/index'); // URL to the pagination page
-		$config['total_rows'] = $this->Datapeserta_model->count_all(); // Total number of records
+		$config['total_rows'] = $this->db->count_all('tbl_peserta'); // Total number of records
 		$config['per_page'] = 10; // Number of records to show per page
 
 		// Styling for the pagination links

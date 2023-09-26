@@ -16,11 +16,6 @@ class Datapeserta_model extends CI_Model
 			return array();
 		}
 	}
-
-    public function count_all() {
-        // Query to count the total number of records in the table
-        return $this->db->count_all('tbl_peserta');
-    }
 	public function getAll()
 	{
 		return $this->db->query("
