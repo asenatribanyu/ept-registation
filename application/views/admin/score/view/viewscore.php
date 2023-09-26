@@ -35,8 +35,8 @@
 				</thead>
 				<tbody>
 					<?php
-					$no = 1;
-					foreach ($tbl_score as $s) : ?>
+					$no = $this->uri->segment(5)+1 ?? 0;
+					foreach ($records as $s) : ?>
 						<tr style="text-align: center;">
 							<td><input type='checkbox' class='check-item' name='id_score[]' value='<?php echo $s->id_score ?>'></td>
 							<td width="20px"><?php echo $no++ ?></td>
@@ -61,6 +61,9 @@
 				</svg>
 			</button>
 		</div>
+		<div class="pagination">
+   <?php echo $pagination; ?>
+</div>
 	</form>
 </div>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
