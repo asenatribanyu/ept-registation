@@ -59,7 +59,7 @@
 				</svg>
 			</button>
 		</div>
-		<div class="pagination">
+		<div class="pagination justify-content-center">
    <?php echo $pagination; ?>
 </div>
 	</form>
