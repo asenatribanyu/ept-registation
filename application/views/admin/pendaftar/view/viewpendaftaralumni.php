@@ -38,22 +38,22 @@
                 </thead>
                 <tbody>
                     <?php
-                    $no = 1;
-                    foreach ($tbl_registrant_alumni as $r) : ?>
+                    $no = $this->uri->segment(5)+1 ?? 0;
+                    foreach ($records as $r) : ?>
                         <tr style="text-align: center;">
                             <td><input type='checkbox' class='check-item' name='id_registrant_alumni[]' value='<?php echo $r->id_registrant_alumni ?>'></td>
                             <td width="20px"><?php echo $no++ ?></td>
-                            <td><?php echo $r->tanggal ?></td>
-                            <td><?php echo $r->typee ?></td>
-                            <td><?php echo $r->waktu ?></td>
-                            <td><?php echo $r->tempat ?></td>
-                            <td><?php echo $r->nama ?></td>
-                            <td><?php echo $r->statuss ?></td>
-                            <td><?php echo $r->npmm ?></td>
-                            <td><?php echo $r->emaill ?></td>
-                            <td><?php echo $r->nohp ?></td>
-                            <td><?php echo $r->fakultas ?></td>
-                            <td><?php echo $r->prodi ?></td>
+                            <td><?php echo $r->tanggal_event ?></td>
+							<td><?php echo $r->type ?></td>
+							<td><?php echo $r->time ?></td>
+							<td><?php echo $r->venue ?></td>
+							<td><?php echo $r->nama_peserta ?></td>
+							<td><?php echo $r->status ?></td>
+							<td><?php echo $r->npm ?></td>
+							<td><?php echo $r->email ?></td>
+							<td><?php echo $r->no_hp ?></td>
+							<td><?php echo $r->nama_fakultas ?></td>
+							<td><?php echo $r->nama_prodi ?></td>
                             <td style="text-align: center;">
                                 <a href="<?php echo base_url(); ?>admin/pendaftar/pendaftaralumni/delete/<?php echo $r->id_registrant_alumni; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                             </td>
@@ -64,5 +64,8 @@
             <h6><input type="checkbox" id="check-all"> check all</h6>
             <button type="button" id="btn-delete" class="btn btn-danger mb-5"><i class="fa fa-trash"></i> Delete</button>
         </div>
+        <div class="pagination justify-content-center">
+   <?php echo $pagination; ?>
+</div>
     </form>
 </div>

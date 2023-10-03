@@ -2,6 +2,21 @@
 
 class Pendaftar_modelalumni extends CI_Model
 {
+    public function get_records($limit, $offset) {
+        $this->db->from('tbl_registrant_alumni');
+        $this->db->join('tbl_event_alumni', 'tbl_registrant_alumni.id_event_alumni = tbl_event_alumni.id_event_alumni');
+        $this->db->join('tbl_peserta_alumni', 'tbl_registrant_alumni.id_peserta_alumni = tbl_peserta_alumni.id_peserta_alumni');
+        $this->db->join('tbl_fakultas', 'tbl_peserta_alumni.id_fakultas = tbl_fakultas.id_fakultas');
+		$this->db->join('tbl_prodi', 'tbl_peserta_alumni.id_prodi = tbl_prodi.id_prodi');
+		$this->db->limit($limit, $offset);
+		$query = $this->db->get();
+	
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return array();
+		}
+	}
     public function getAll()
     {
         return $this->db->query("
