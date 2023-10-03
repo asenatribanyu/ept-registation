@@ -56,7 +56,7 @@
             <h6><input type="checkbox" id="check-all"> check all</h6>
             <button type="button" id="btn-delete" class="btn btn-danger mb-5"><i class="fa fa-trash"></i> Delete</button>
         </div>
-        <div class="pagination">
+        <div class="pagination justify-content-center">
    <?php echo $pagination; ?>
 </div>
     </form>
