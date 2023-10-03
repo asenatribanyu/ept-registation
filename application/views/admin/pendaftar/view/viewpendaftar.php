@@ -35,22 +35,22 @@
 				</thead>
 				<tbody>
 					<?php
-					$no = 1;
-					foreach ($tbl_registrant as $r) : ?>
+					$no = $this->uri->segment(5)+1 ?? 0;
+					foreach ($records as $r) : ?>
 						<tr style="text-align: center;">
 							<td><input type='checkbox' class='check-item' name='id_registrant[]' value='<?php echo $r->id_registrant ?>'></td>
 							<td width="20px"><?php echo $no++ ?></td>
-							<td><?php echo $r->tanggal ?></td>
-							<td><?php echo $r->typee ?></td>
-							<td><?php echo $r->waktu ?></td>
-							<td><?php echo $r->tempat ?></td>
-							<td><?php echo $r->nama ?></td>
-							<td><?php echo $r->statuss ?></td>
-							<td><?php echo $r->npmm ?></td>
-							<td><?php echo $r->emaill ?></td>
-							<td><?php echo $r->nohp ?></td>
-							<td><?php echo $r->fakultas ?></td>
-							<td><?php echo $r->prodi ?></td>
+							<td><?php echo $r->tanggal_event ?></td>
+							<td><?php echo $r->type ?></td>
+							<td><?php echo $r->time ?></td>
+							<td><?php echo $r->venue ?></td>
+							<td><?php echo $r->nama_peserta ?></td>
+							<td><?php echo $r->status ?></td>
+							<td><?php echo $r->npm ?></td>
+							<td><?php echo $r->email ?></td>
+							<td><?php echo $r->no_hp ?></td>
+							<td><?php echo $r->nama_fakultas ?></td>
+							<td><?php echo $r->nama_prodi ?></td>
 							<td style="text-align: center;">
 								<a href="<?php echo base_url(); ?>admin/pendaftar/pendaftar/delete/<?php echo $r->id_registrant; ?>" class="btn btn-sm btn-danger delete-button"><i class="fa fa-trash"></i></a>
 							</td>
@@ -65,6 +65,9 @@
 				</svg>
 			</button>
 		</div>
+		<div class="pagination justify-content-center">
+   <?php echo $pagination; ?>
+</div>
 	</form>
 </div>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
