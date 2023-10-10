@@ -12,7 +12,52 @@
 </header>
 <div class="card card-body blur shadow-blur mx-2 mx-md-3 mt-n6">
 	<form method="post" action="<?php echo base_url('admin/peserta/peserta/deletee') ?>" id="form-delete">
-		<div class="data-tables datatable-dark">
+		<div class="row">
+			<div class="col-md-11">
+				<table class="table table-bordered table-striped table-hover" >
+					<thead>
+						<tr style="text-align: center;">
+							<th> </th>
+							<th>No</th>
+							<th>Nama</th>
+							<th>Status</th>
+							<th>NPM / NIK</th>
+							<th>Email</th>
+							<th>No HP</th>
+							<th>Fakultas</th>
+							<th>Prodi</th>
+							<th>Waktu Input</th>
+							<th style="width: 70px;">Aksi</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+						$no = $this->uri->segment(5)+1 ?? 0;
+						foreach ($records as $p) : ?>
+							<tr style="text-align: center;">
+								<td><input type='checkbox' class='check-item' name='id_peserta[]' value='<?php echo $p->id_peserta ?>'></td>
+								<td width="20px"><?php echo $no++ ?></td>
+								<td><?php echo $p->nama_peserta ?></td>
+								<td><?php echo $p->status ?></td>
+								<td><?php echo $p->npm ?></td>
+								<td><?php echo $p->email ?></td>
+								<td><?php echo $p->no_hp ?></td>
+								<td><?php echo $p->nama_fakultas ?></td>
+								<td><?php echo $p->nama_prodi ?></td>
+								<td><?php echo $p->waktu_input ?></td>
+								<td style="text-align: center;">
+									<a href="<?php echo base_url(); ?>admin/peserta/peserta/update/<?php echo $p->id_peserta; ?>" class="btn btn-sm btn-primary update-button"><i class="fa fa-edit"></i></a>
+									<a href="<?php echo base_url(); ?>admin/peserta/peserta/delete/<?php echo $p->id_peserta; ?>" class="btn btn-sm btn-danger delete-button"><i class="fa fa-trash"></i></a>
+								</td>
+							</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
+				<h6><input type="checkbox" id="check-all"> check all</h6>
+				<button type="button" id="btn-delete" class="btn btn-danger mb-5"><i class="fa fa-trash"></i> Delete</button>
+			</div>
+		</div>
+		<!-- <div class="data-tables datatable-dark">
 			<table class="table table-bordered table-striped table-hover" id="dataTable1" style="width:100%">
 				<thead>
 					<tr style="text-align: center;">
@@ -58,10 +103,10 @@
 					<path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>
 				</svg>
 			</button>
-		</div>
+		</div> -->
 		<div class="pagination justify-content-center">
-   <?php echo $pagination; ?>
-</div>
+			<?php echo $pagination; ?>
+		</div>
 	</form>
 </div>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
