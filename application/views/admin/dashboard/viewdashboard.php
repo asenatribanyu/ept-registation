@@ -1,72 +1,3 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ept_registration";
-
-// Create a connection
-$connection = mysqli_connect($servername, $username, $password, $dbname);
-
-// Check the connection
-if (!$connection) {
-  die("Connection failed: " . mysqli_connect_error());
-}
-
-$studyPrograms = array(
-  array("label" => "S1 Akuntansi", "id_prodi" => 1),
-  array("label" => "D3 Akuntansi", "id_prodi" => 2),
-  array("label" => "Profesi Akuntansi (PPAK)", "id_prodi" => 3),
-  array("label" => "S1 Manajemen", "id_prodi" => 4),
-  array("label" => "D3 Manajemen", "id_prodi" => 5),
-  array("label" => "Magister Manajemen", "id_prodi" => 6),
-  array("label" => "S1 Teknik Informatika", "id_prodi" => 7),
-  array("label" => "S1 Teknik Industri", "id_prodi" => 8),
-  array("label" => "S1 Teknik Elektro", "id_prodi" => 9),
-  array("label" => "S1 Teknik Mesin", "id_prodi" => 10),
-  array("label" => "S1 Teknik Sipil", "id_prodi" => 11),
-  array("label" => "S1 Bahasa Jepang", "id_prodi" => 12),
-  array("label" => "D3 Bahasa Jepang", "id_prodi" => 13),
-  array("label" => "S1 Bahasa Inggris", "id_prodi" => 14),
-  array("label" => "D3 Multimedia", "id_prodi" => 15),
-  array("label" => "D4 Desain Grafis", "id_prodi" => 16),
-  array("label" => "Perdagangan Internasional", "id_prodi" => 18),
-  array("label" => "Perpustakaan dan Sains Informasi", "id_prodi" => 19),
-  array("label" => "Produksi Film & Televisi", "id_prodi" => 20),
-  array("label" => "S1 Sistem Informasi", "id_prodi" => 21),
-  array("label" => "D3 Teknik Mesin", "id_prodi" => 22),
-  array("label" => "Magister Akutansi", "id_prodi" => 23),
-);
-
-$dataPoints = array();
-$totalCount = 0;
-
-foreach ($studyPrograms as $program) {
-  $idProdi = $program['id_prodi'];
-  $label = $program['label'];
-
-  $query = "SELECT COUNT(*) AS count FROM tbl_peserta WHERE id_prodi = $idProdi";
-  $result = mysqli_query($connection, $query);
-
-  if ($result) {
-    $row = mysqli_fetch_assoc($result);
-    $count = $row['count'];
-
-    $dataPoints[] = array("label" => $label, "y" => $count);
-
-    $totalCount += $count;
-  } else {
-    echo "Error executing query: " . mysqli_error($connection);
-  }
-}
-
-// Close the database connection
-mysqli_close($connection);
-?>
-
-
-
-
-
 <header class="header-2">
   <div class="page-header min-vh-75 relative" style="background-image: url('<?php echo base_url() ?>assets/images/bg2.jpg')">
     <div class="container">
@@ -79,7 +10,6 @@ mysqli_close($connection);
     </div>
   </div>
 </header>
-
 <div class="card card-body blur shadow-blur mx-3 mx-md-9 mt-n6">
 
   <section id="count-stats">
@@ -126,17 +56,17 @@ mysqli_close($connection);
     <select id="studyProgram" onchange="filterData()">
       <option value="">All Study Programs</option>
       <?php
-      foreach ($studyPrograms as $program) {
-        $label = $program['label'];
-        echo "<option value=\"$label\">$label</option>";
-      }
-      ?>
+        foreach ($this->db->select('*')->from('tbl_prodi')->get()->result() as $data) {
+            echo "<option value=\"$data->nama_prodi\">$data->nama_prodi</option>";
+        }
+    ?>
     </select>
     <div id="chartContainer" style="height: 600px; width: 100%; font-size:10px;"></div>
 
     <div id="totalCountContainerId"></div>
   </section>
 </div>
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 <script>
@@ -153,26 +83,39 @@ mysqli_close($connection);
   <?php endif; ?>
 </script>
 <script>
-  var allDataPoints = <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>;
-  var chartDataPoints = allDataPoints; // Initialize with all data points
-  var totalCount = <?php echo $totalCount; ?>; // Total count from tbl_peserta
+<?php
+$dataPoints = array();
+$totalCount = $this->db->count_all_results('tbl_peserta');
+foreach ($this->db->select('*')->from('tbl_prodi')->get()->result() as $data) {
 
-  function filterData() {
+    $count = $this->db->where('id_prodi', $data->id_prodi)->count_all_results('tbl_peserta');
+    $label = $data->nama_prodi;
+    $percentage = number_format(($count / $totalCount) * 100, 2);
+    $dataPoints[] = array("label" => $label, "y" => $count, "percentage" => $percentage );
+}
+?>
+
+var allDataPoints = <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>;
+var chartDataPoints = allDataPoints;
+window.onload = function(){
+  renderChart(chartDataPoints);
+}
+
+function filterData(){
     var studyProgram = document.getElementById('studyProgram').value.trim();
-
-    if (studyProgram !== '') {
+    if (studyProgram == '') {
+      chartDataPoints = allDataPoints;
+    } else {
       chartDataPoints = allDataPoints.filter(function(dataPoint) {
         return dataPoint.label === studyProgram;
       });
-    } else {
-      chartDataPoints = allDataPoints;
+      
     }
-
     renderChart(chartDataPoints);
-    updateTotalCount(chartDataPoints);
-  }
+    // updateTotalCount(chartDataPoints);
 
-  function renderChart(dataPoints) {
+}
+function renderChart(dataPoints) {
     var chart = new CanvasJS.Chart("chartContainer", {
       theme: "light2",
       animationEnabled: true,
@@ -183,57 +126,13 @@ mysqli_close($connection);
       },
       data: [{
         type: "doughnut",
-        indexLabel: "{label} - {y}%",
-        yValueFormatString: "#,##0.00\"\"",
+        indexLabel: "{label} - {y}",
         showInLegend: true,
-        legendText: "{label} : {y}%",
+        legendText: "{label} : {percentage}%",
         dataPoints: dataPoints
       }]
     });
 
     chart.render();
-  }
-
-  function getTotalCount(dataPoints) {
-    var count = 0;
-    for (var i = 0; i < dataPoints.length; i++) {
-      count += dataPoints[i].y;
-    }
-    return count.toFixed(0); // Return raw count as a whole number
-  }
-
-  function updateTotalCount(dataPoints) {
-    var totalCountContainerId = document.getElementById("totalCountContainerId");
-
-    var studyProgram = document.getElementById('studyProgram').value.trim();
-    var count = 0;
-
-    if (studyProgram === '') {
-      totalCountContainerId.textContent = "";
-    } else {
-      var selectedDataPoints = dataPoints.filter(function(dataPoint) {
-        return dataPoint.label === studyProgram;
-      });
-
-      if (selectedDataPoints.length > 0) {
-        count = getTotalCount(selectedDataPoints);
-        totalCountContainerId.textContent = "Total Count: " + count;
-      } else {
-        totalCountContainerId.textContent = "";
-      }
-    }
-  }
-
-  // Calculate the total count for all data points
-  var totalCount = getTotalCount(allDataPoints);
-
-  // Calculate the percentages for all data points
-  for (var i = 0; i < allDataPoints.length; i++) {
-    var percentage = (allDataPoints[i].y / totalCount * 100);
-    allDataPoints[i].y = Math.min(percentage, 100).toFixed(2);
-  }
-
-  // Initial chart rendering
-  renderChart(allDataPoints);
-  updateTotalCount(allDataPoints);
+}
 </script>
