@@ -15,8 +15,22 @@
 
     <?php echo $this->session->flashdata('pesan') ?>
     <form method="post" action="<?php echo base_url('admin/peserta/pesertatoeic/deletee') ?>" id="form-delete">
+
+        <div class="row" style="justify-content: flex-end;">
+			<div class="col-md-3">
+				<!-- Fitur Search -->
+				<form action="<?= base_url(); ?>" method="post">
+					<div class="input-group mb-3 gap-2">
+						<input type="text" class="form-control p-2" style="border: 1px solid #808080; height: 40px;" placeholder="Search" name="keyword" autocomplete="off" >
+						<button class="btn btn-success" type="submit" name="submit">search</button>
+					</div>
+				</form>
+				<!-- End of Fitur Search -->
+			</div>
+		</div>
+
         <div class="data-tables datatable-dark">
-            <table class="table table-bordered table-striped table-hover" id="dataTable1" style="width:100%">
+            <table class="table table-bordered table-striped table-hover" style="width:100%">
                 <thead>
                     <tr style="text-align: center;">
                         <th> </th>
@@ -54,7 +68,7 @@
                 </tbody>
             </table>
             <h6><input type="checkbox" id="check-all"> check all</h6>
-            <button type="button" id="btn-delete" class="btn btn-danger mb-5"><i class="fa fa-trash"></i> Delete</button>
+            <button type="button" id="btn-delete" class="btn btn-danger mb-1"><i class="fa fa-trash"></i> Delete</button>
         </div>
         <div class="pagination justify-content-center">
    <?php echo $pagination; ?>
