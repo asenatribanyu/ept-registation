@@ -18,8 +18,8 @@
 				<!-- Fitur Search -->
 				<form action="<?= base_url(); ?>" method="post">
 					<div class="input-group mb-3 gap-2">
-						<input type="text" class="form-control p-2" style="border: 1px solid #808080; height: 40px;" placeholder="Search" name="keyword" autocomplete="off" >
-						<button class="btn btn-success" type="submit" name="submit">search</button>
+						<input type="text" class="form-control p-2" style="border: 1px solid #808080; height: 40px; border-radius: 5px;" placeholder="Search" name="keyword" autocomplete="off" >
+						<button class="btn btn-success" type="submit" name="submit" style="border-radius: 5px">search</button>
 					</div>
 				</form>
 				<!-- End of Fitur Search -->
