@@ -126,9 +126,9 @@ function renderChart(dataPoints) {
       },
       data: [{
         type: "doughnut",
-        indexLabel: "{label} - {y}",
+        indexLabel: "{label} - {percentage}%",
         showInLegend: true,
-        legendText: "{label} : {percentage}%",
+        legendText: "{label} : {y}",
         dataPoints: dataPoints
       }]
     });
