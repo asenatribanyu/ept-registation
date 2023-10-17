@@ -14,9 +14,7 @@
 <div class="card card-body blur shadow-blur mx-2 mx-md-3 mt-n6">
 
     <?php echo $this->session->flashdata('pesan') ?>
-    <form method="post" action="<?php echo base_url('admin/peserta/pesertaalumni/deletee') ?>" id="form-delete">
-
-        <div class="row" style="justify-content: flex-end;">
+    <div class="row" style="justify-content: flex-end;">
 			<div class="col-md-3">
 				<!-- Fitur Search -->
 				<form action="<?= base_url(); ?>" method="post">
@@ -28,6 +26,7 @@
 				<!-- End of Fitur Search -->
 			</div>
 		</div>
+    <form method="post" action="<?php echo base_url('admin/peserta/pesertaalumni/deletee') ?>" id="form-delete">
             <div class="data-tables datatable-dark">
 				<table class="table table-bordered table-striped table-hover" style="width: 100%;">
 					<thead>
