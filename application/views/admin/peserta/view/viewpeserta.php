@@ -11,7 +11,7 @@
 	</div>
 </header>
 <div class="card card-body blur shadow-blur mx-2 mx-md-3 mt-n6">
-<div class="row" style="justify-content: flex-end;">
+		<div class="row" style="justify-content: flex-end;">
 			<div class="col-md-3">
 				<!-- Fitur Search -->
 				<form action="<?= base_url(); ?>" method="post">
