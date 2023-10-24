@@ -47,10 +47,12 @@ class Peserta extends CI_Controller
 		$config['num_tag_close'] = '</li>';
 
 		$config['attributes'] = array('class' => 'page-link');
+		$search = $this->input->post('search');
 
 		$this->pagination->initialize($config);
 		$page = $this->uri->segment(5);
-		$data['records'] = $this->Datapeserta_model->get_records($config['per_page'], $page);
+		$data['records'] = $this->Datapeserta_model->get_records($config['per_page'], $page, $search);
+		$data['search'] = $search;
 		$data['pagination'] = $this->pagination->create_links();
 
 		// $data['tbl_peserta'] = $this->Datapeserta_model->getAll()->result();
