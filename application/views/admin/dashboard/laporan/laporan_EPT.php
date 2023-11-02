@@ -21,12 +21,12 @@
                         <div class="row">
                             <div class="column">
                                 <div class="text-center" class="btn btn-primary btn-lg">
-                                    <a href="<?php echo base_url(); ?>admin/pendaftar/pendaftar/export" class="button6">Laporan Data Pendaftar</a>
+                                    <a href="<?php echo base_url(); ?>admin/pendaftar/Filterpendaftar" class="button6">Laporan Data Pendaftar</a>
                                 </div>
                             </div>
                             <div class="column">
                                 <div class="text-center" class="btn btn-primary btn-lg">
-                                    <a href="<?php echo base_url(); ?>admin/peserta/peserta/export" class="button6">Laporan Data Peserta</a>
+                                    <a href="<?php echo base_url(); ?>admin/peserta/Filterpeserta" class="button6">Laporan Data Peserta</a>
                                 </div>
                             </div>
                             <div class="column">

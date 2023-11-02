@@ -44,4 +44,12 @@ class Pendaftar extends CI_Controller
         $this->load->view('admin/pendaftar/export/export', $data);
         $this->load->view('tampilan/footer');
     }
+
+    public function filter(){
+        $data['tbl_registrant'] = $this->Pendaftar_model->getAll()->result();
+        $this->load->view('tampilan/header');
+        $this->load->view('tampilan/navbar');
+        $this->load->view('admin/pendaftar/filter/tabel', $data);
+        $this->load->view('tampilan/footer');
+    }
 }
