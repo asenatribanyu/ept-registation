@@ -21,7 +21,11 @@
                         <div class="row">
                             <div class="column">
                                 <div class="text-center" class="btn btn-primary btn-lg">
+                                    <?php if($this->session->userdata['role_id'] === '1'): ?>
                                     <a href="<?php echo base_url(); ?>admin/pendaftar/Filterpendaftar" class="button6">Laporan Data Pendaftar</a>
+                                    <?php else: ?>
+                                        <a href="<?php echo base_url(); ?>admin/pendaftar/pendaftar/filter/<?php echo $this->session->userdata['role_id']; ?>" class="button6">Laporan Data Pendaftar</a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <div class="column">

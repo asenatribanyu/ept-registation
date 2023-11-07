@@ -29,6 +29,7 @@ class Login extends CI_Controller
             foreach ($cek->result() as $ck) {
                 $sess_data['username'] = $ck->username;
                 $sess_data['password'] = $ck->password;
+                $sess_data['role_id'] = $ck->role_id;
                 $this->session->set_userdata($sess_data);
             }
 

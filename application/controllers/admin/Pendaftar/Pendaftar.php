@@ -45,8 +45,15 @@ class Pendaftar extends CI_Controller
         $this->load->view('tampilan/footer');
     }
 
-    public function filter(){
-        $data['tbl_registrant'] = $this->Pendaftar_model->getAll()->result();
+    public function filter($id){
+        if($id <= 6 ){
+            $filter = 'fakultas';
+            $data['tbl_registrant'] = $this->Pendaftar_model->filter($filter, $id)->result();
+        }else{
+            $filter = 'prodi';
+            $data['tbl_registrant'] = $this->Pendaftar_model->filter($filter, $id)->result(); 
+        }
+        
         $this->load->view('tampilan/header');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/pendaftar/filter/tabel', $data);
