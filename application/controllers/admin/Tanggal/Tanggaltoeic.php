@@ -15,11 +15,15 @@ class Tanggaltoeic extends CI_Controller
 
     public function index()
     {
+        if($this->session->userdata['role_id'] !== '1'){
+            redirect('/admin/dashboard/laporan_EPT');
+        }else{
         $data['tbl_event_toeic'] = $this->Tanggal_modeltoeic->tampil_data()->result();
         $this->load->view('tampilan/headertoeic');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/tgltes/view/viewtgltestoeic', $data);
         $this->load->view('tampilan/footer');
+        }
     }
 
     public function input()

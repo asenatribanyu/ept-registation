@@ -15,11 +15,15 @@ class Pendaftartoeic extends CI_Controller
 
     public function index()
     {
+        if($this->session->userdata['role_id'] !== '1'){
+            redirect('/admin/dashboard/laporan_EPT');
+        }else{
         $data['tbl_registrant_toeic'] = $this->Pendaftar_modeltoeic->getAll()->result();
         $this->load->view('tampilan/headertoeic');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/pendaftar/view/viewpendaftartoeic', $data);
         $this->load->view('tampilan/footer');
+        }
     }
 
     public function delete($id)

@@ -15,11 +15,15 @@ class Pesertajp extends CI_Controller
 
     public function index()
     {
+        if($this->session->userdata['role_id'] !== '1'){
+            redirect('/admin/dashboard/laporan_EPT');
+        }else{
         $data['tbl_peserta_jp'] = $this->Datapeserta_modeljp->getAll()->result();
         $this->load->view('tampilan/headerjp');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/peserta/view/viewpesertajp', $data);
         $this->load->view('tampilan/footer');
+        }
     }
 
     public function _rules()

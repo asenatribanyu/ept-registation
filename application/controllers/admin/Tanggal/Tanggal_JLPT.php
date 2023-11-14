@@ -15,11 +15,15 @@ class Tanggal_JLPT extends CI_Controller
 
     public function index()
     {
+        if($this->session->userdata['role_id'] !== '1'){
+            redirect('/admin/dashboard/laporan_EPT');
+        }else{
         $data['tbl_event_jp'] = $this->Tanggal_modeljp->tampil_data()->result();
         $this->load->view('tampilan/headerjp');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/tgltes/view/viewtgltesjp', $data);
         $this->load->view('tampilan/footer');
+        }
     }
 
     public function input()

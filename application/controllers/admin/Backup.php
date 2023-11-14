@@ -18,10 +18,14 @@ class Backup extends CI_Controller
 
     public function index()
     {
+        if($this->session->userdata['role_id'] !== '1'){
+            redirect('/admin/dashboard/laporan_EPT');
+        }else{
         $this->load->view('tampilan/headerbackup');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/backup/viewbackup');
         $this->load->view('tampilan/footer');
+        }
     }
 
     public function backup()

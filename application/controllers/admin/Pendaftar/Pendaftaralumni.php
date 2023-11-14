@@ -15,11 +15,15 @@ class Pendaftaralumni extends CI_Controller
 
     public function index()
     {
+        if($this->session->userdata['role_id'] !== '1'){
+            redirect('/admin/dashboard/laporan_EPT');
+        }else{
         $data['tbl_registrant_alumni'] = $this->Pendaftar_modelalumni->getAll()->result();
         $this->load->view('tampilan/headeralumni');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/pendaftar/view/viewpendaftaralumni', $data);
         $this->load->view('tampilan/footer');
+        }
     }
 
     public function delete($id)

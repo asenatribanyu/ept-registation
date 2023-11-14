@@ -15,11 +15,15 @@ class Tanggal_ALUMNI extends CI_Controller
 
     public function index()
     {
+        if($this->session->userdata['role_id'] !== '1'){
+            redirect('/admin/dashboard/laporan_EPT');
+        }else{
         $data['tbl_event_alumni'] = $this->Tanggal_modelalumni->tampil_data()->result();
         $this->load->view('tampilan/headeralumni');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/tgltes/view/viewtgltesalumni', $data);
         $this->load->view('tampilan/footer');
+        }
     }
 
     public function input()
