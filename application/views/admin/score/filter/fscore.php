@@ -21,7 +21,7 @@
                             Berdasarkan Fakultas
                         </button>
                         <ul class="dropdown-menu ">
-                            <li><a class="dropdown-item" href=" ">Ekonomi & Bisnis</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/2">Ekonomi & Bisnis</a></li>
                             <li><a class="dropdown-item" href=" ">Teknik</a></li>
                             <li><a class="dropdown-item" href=" ">Ilmu Budaya</a></li>
                             <li><a class="dropdown-item" href=" ">Desain Komunikasi & Visual</a></li>

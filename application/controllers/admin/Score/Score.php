@@ -34,6 +34,21 @@ class Score extends CI_Controller
         $this->load->view('tampilan/footer');
     }
 
+    public function filter($id){
+        if($id <= 6 ){
+            $filter = 'fakultas';
+            $data['tbl_score'] = $this->Score_model->filter($filter, $id)->result();
+        }else{
+            $filter = 'prodi';
+            $data['tbl_score'] = $this->Score_model->filter($filter, $id)->result(); 
+        }
+        
+        $this->load->view('tampilan/header');
+        $this->load->view('tampilan/navbar');
+        $this->load->view('admin/score/filter/tabelscore', $data);
+        $this->load->view('tampilan/footer');
+    }
+
     public function excel()
     {
         if (isset($_FILES["file"]["name"])) {
@@ -247,7 +262,7 @@ class Score extends CI_Controller
 
     public function export()
     {
-        $data['tbl_score'] = $this->db->get('tbl_score')->result();
+        $data['tbl_score'] = $this->Score_model->getAll()->result();
         $this->load->view('tampilan/header');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/score/export/exportscore', $data);
