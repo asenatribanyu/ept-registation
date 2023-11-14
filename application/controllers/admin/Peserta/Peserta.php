@@ -97,4 +97,19 @@ class Peserta extends CI_Controller
 		$this->load->view('admin/peserta/export/exportpeserta', $data);
 		$this->load->view('tampilan/footer');
 	}
+
+	public function filter($id){
+        if($id <= 6 ){
+            $filter = 'fakultas';
+            $data['tbl_peserta'] = $this->Datapeserta_model->filter($filter, $id)->result();
+        }else{
+            $filter = 'prodi';
+            $data['tbl_peserta'] = $this->Datapeserta_model->filter($filter, $id)->result(); 
+        }
+        
+        $this->load->view('tampilan/header');
+        $this->load->view('tampilan/navbar');
+        $this->load->view('admin/peserta/filter/tabelpeserta', $data);
+        $this->load->view('tampilan/footer');
+    }
 }

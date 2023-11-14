@@ -40,7 +40,7 @@
                             </div>
                             <div class="column">
                                 <div class="text-center" class="btn btn-primary btn-lg">
-                                    <a href="<?php echo base_url(); ?>admin/score/score/export" class="button6">Laporan Data Score EPT</a>
+                                    <a href="<?php echo base_url(); ?>admin/score/Filterscore" class="button6">Laporan Data Score EPT</a>
                                 </div>
                             </div>
                         </div>

@@ -4,7 +4,7 @@
 			<div class="row">
 				<div class="col-lg-7 text-center mx-auto">
 					<h1 class="text-white pt-3 mt-n5">Laporan</h1>
-					<p class="lead text-white mt-3">Laporan Data Pendaftar EPT</p>
+					<p class="lead text-white mt-3">Laporan Data Peserta EPT</p>
 				</div>
 			</div>
 		</div>
@@ -18,10 +18,6 @@
 			<thead>
 				<tr style="text-align: center;">
 					<th>No</th>
-					<th>Tanggal Tes</th>
-					<th>Tipe Test</th>
-					<th>Waktu</th>
-					<th>Venue</th>
 					<th>Nama Lengkap</th>
 					<th>Status</th>
 					<th>NPM</th>
@@ -34,13 +30,9 @@
 			<tbody>
 				<?php
 				$no = 1;
-				foreach ($tbl_registrant as $r) : ?>
+				foreach ($tbl_peserta as $r) : ?>
 					<tr style="text-align: center;">
 						<td width="20px"><?php echo $no++ ?></td>
-						<td><?php echo $r->tanggal ?></td>
-						<td><?php echo $r->typee ?></td>
-						<td><?php echo $r->waktu ?></td>
-						<td><?php echo $r->tempat ?></td>
 						<td><?php echo $r->nama ?></td>
 						<td><?php echo $r->statuss ?></td>
 						<td><?php echo $r->npmm ?></td>

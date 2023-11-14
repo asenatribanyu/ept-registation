@@ -21,6 +21,8 @@
 					<th>Tanggal Tes</th>
 					<th>Nama Mahasiswa</th>
 					<th>NPM</th>
+					<th>Fakultas</th>
+					<th>Prodi</th>
 					<th>Sec1</th>
 					<th>Sec2</th>
 					<th>Sec3</th>
@@ -36,6 +38,8 @@
 						<td><?php echo $s->tanggal ?></td>
 						<td><?php echo $s->nama ?></td>
 						<td><?php echo $s->npm ?></td>
+						<td> </td>
+						<td> </td>
 						<td><?php echo $s->sec1 ?></td>
 						<td><?php echo $s->sec2 ?></td>
 						<td><?php echo $s->sec3 ?></td>
