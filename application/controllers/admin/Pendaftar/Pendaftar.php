@@ -13,8 +13,12 @@ class Pendaftar extends CI_Controller
         }
     }
 
+
         public function index()
 	{
+  if($this->session->userdata['role_id'] !== '1'){
+            redirect('/admin/dashboard/laporan_EPT');
+        }else{
 		$this->load->library('pagination');
 		$config['base_url'] = base_url('/admin/pendaftar/pendaftar/index'); // URL to the pagination page
 		$config['total_rows'] = $this->db->count_all('tbl_registrant'); // Total number of records
@@ -58,6 +62,7 @@ class Pendaftar extends CI_Controller
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/pendaftar/view/viewpendaftar', $data);
         $this->load->view('tampilan/footer');
+        }
     }
 
     public function delete($id)
@@ -80,6 +85,21 @@ class Pendaftar extends CI_Controller
         $this->load->view('tampilan/header');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/pendaftar/export/export', $data);
+        $this->load->view('tampilan/footer');
+    }
+
+    public function filter($id){
+        if($id <= 6 ){
+            $filter = 'fakultas';
+            $data['tbl_registrant'] = $this->Pendaftar_model->filter($filter, $id)->result();
+        }else{
+            $filter = 'prodi';
+            $data['tbl_registrant'] = $this->Pendaftar_model->filter($filter, $id)->result(); 
+        }
+        
+        $this->load->view('tampilan/header');
+        $this->load->view('tampilan/navbar');
+        $this->load->view('admin/pendaftar/filter/tabel', $data);
         $this->load->view('tampilan/footer');
     }
 }

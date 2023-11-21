@@ -14,7 +14,7 @@
 <div class="card card-body blur shadow-blur mx-2 mx-md-3 mt-n6">
 
 	<div class="data-tables datatable-dark">
-	<table class="table table-bordered table-striped table-hover"<?= ($this->session->userdata['role_id'] === '1') ? ' id="dataTable"' : 'id="dataTable1"' ?> style="width: 100%">
+		<table class="table table-bordered table-striped table-hover" id="dataTable" style="width:100%">
 			<thead>
 				<tr style="text-align: center;">
 					<th>No</th>

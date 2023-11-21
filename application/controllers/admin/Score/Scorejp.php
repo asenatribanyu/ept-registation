@@ -17,12 +17,16 @@ class Scorejp extends CI_Controller
 
     public function index()
     {
+        if($this->session->userdata['role_id'] !== '1'){
+            redirect('/admin/dashboard/laporan_EPT');
+        }else{
         $data['title'] = 'Import Excel';
         $data['tbl_score_jp'] = $this->db->get('tbl_score_jp')->result();
         $this->load->view('tampilan/headerjp');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/score/view/viewscorejp', $data);
         $this->load->view('tampilan/footer');
+        }
     }
 
     public function create()

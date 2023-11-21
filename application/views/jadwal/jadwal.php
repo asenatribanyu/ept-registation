@@ -92,7 +92,9 @@
                                             1. Untuk Mahasiswa yang akan mengambil sertifikat EPT, silahkan mengambil di Gedung K Lantai 3 (Pusat Bahasa) pada:<br>
                                             - Senin - Jumat : 08.00 - 16.00 WIB<br>
                                             - Sabtu : 08.00 - 12.00 WIB<br><br>
-                                            2. Jika kuota jadwal habis, silahkan menunggu sampai jadwal baru tersedia.
+                                            2. Jika kuota jadwal habis, silahkan menunggu sampai jadwal baru tersedia.<br><br>
+                                            3. Apabila mhs tidak mendapat kuota, mhs bisa mengajukan pendaftaran secara kolektif ke lembaga bahasa di gedung pustala loka lt.3 atau email lembaga.bahasa@widyatama.ac.id<br><br>
+                                            4. apabila mhs sudah mendaftar tapi tidak hadir pada hari pengetesan/ujian makanpembayaran dianggap hangus.
                                         </p>
 
                                         <div class="col-lg-12">

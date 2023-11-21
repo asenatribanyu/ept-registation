@@ -15,6 +15,9 @@ class Pendaftaralumni extends CI_Controller
 
     public function index()
     {
+        if($this->session->userdata['role_id'] !== '1'){
+            redirect('/admin/dashboard/laporan_EPT');
+        }else{
         $this->load->library('pagination');
 		$config['base_url'] = base_url('/admin/pendaftar/pendaftaralumni/index'); // URL to the pagination page
 		$config['total_rows'] = $this->db->count_all('tbl_registrant_alumni'); // Total number of records
@@ -58,6 +61,7 @@ class Pendaftaralumni extends CI_Controller
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/pendaftar/view/viewpendaftaralumni', $data);
         $this->load->view('tampilan/footer');
+        }
     }
 
     public function delete($id)

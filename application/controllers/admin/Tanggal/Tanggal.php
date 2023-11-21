@@ -15,11 +15,15 @@ class Tanggal extends CI_Controller
 
 	public function index()
 	{
+		if($this->session->userdata['role_id'] !== '1'){
+            redirect('/admin/dashboard/laporan_EPT');
+        }else{
 		$data['tbl_event'] = $this->Tanggal_model->tampil_data()->result();
 		$this->load->view('tampilan/header');
 		$this->load->view('tampilan/navbar');
 		$this->load->view('admin/tgltes/view/viewtgltes', $data);
 		$this->load->view('tampilan/footer');
+		}
 	}
 
 	public function input()

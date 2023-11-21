@@ -17,6 +17,9 @@ class Score extends CI_Controller
 
     public function index()
     {
+        if($this->session->userdata['role_id'] !== '1'){
+            redirect('/admin/dashboard/laporan_EPT');
+        }else{
         $this->load->library('pagination');
 		$config['base_url'] = base_url('admin/score/score/index'); // URL to the pagination page
 		$config['total_rows'] = $this->db->count_all('tbl_score'); // Total number of records
@@ -44,6 +47,7 @@ class Score extends CI_Controller
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/score/view/viewscore', $data);
         $this->load->view('tampilan/footer');
+        }
     }
 
     public function create()
@@ -52,6 +56,21 @@ class Score extends CI_Controller
         $this->load->view('tampilan/header');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/score/form/formscore', $data);
+        $this->load->view('tampilan/footer');
+    }
+
+    public function filter($id){
+        if($id <= 6 ){
+            $filter = 'fakultas';
+            $data['tbl_score'] = $this->Score_model->filter($filter, $id)->result();
+        }else{
+            $filter = 'prodi';
+            $data['tbl_score'] = $this->Score_model->filter($filter, $id)->result(); 
+        }
+        
+        $this->load->view('tampilan/header');
+        $this->load->view('tampilan/navbar');
+        $this->load->view('admin/score/filter/tabelscore', $data);
         $this->load->view('tampilan/footer');
     }
 
@@ -268,7 +287,7 @@ class Score extends CI_Controller
 
     public function export()
     {
-        $data['tbl_score'] = $this->db->get('tbl_score')->result();
+        $data['tbl_score'] = $this->Score_model->getAll()->result();
         $this->load->view('tampilan/header');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/score/export/exportscore', $data);

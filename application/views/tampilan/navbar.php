@@ -19,6 +19,7 @@
             </button>
             <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
               <ul class="navbar-nav navbar-nav-hover ms-auto">
+              <?php if($this->session->userdata['role_id'] === '1'): ?>
                 <li class="nav-item dropdown dropdown-hover mx-2">
                   <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="material-icons opacity-6 me-2 text-md">assignment_ind</i>
@@ -131,6 +132,8 @@
                     </div>
                   </ul>
                 </li>
+              <?php endif; ?>
+                
 
                 <li class="nav-item dropdown dropdown-hover mx-2">
                   <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuBlocks" data-bs-toggle="dropdown" aria-expanded="false">
@@ -161,6 +164,7 @@
                   </ul>
                 </li>
 
+                <?php if($this->session->userdata['role_id'] === '1'): ?>
                 <li class="nav-item dropdown dropdown-hover mx-2">
                   <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="material-icons opacity-6 me-2 text-md">settings_backup_restore</i>
@@ -180,6 +184,7 @@
                     </div>
                   </ul>
                 </li>
+                <?php endif; ?>
 
                 <li class="nav-item my-auto ms-3 ms-lg-3">
 
