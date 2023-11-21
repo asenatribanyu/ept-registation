@@ -30,7 +30,11 @@
                             </div>
                             <div class="column">
                                 <div class="text-center" class="btn btn-primary btn-lg">
+                                <?php if($this->session->userdata['role_id'] === '1'): ?>
                                     <a href="<?php echo base_url(); ?>admin/peserta/Filterpeserta" class="button6">Laporan Data Peserta</a>
+                                    <?php else: ?>
+                                        <a href="<?php echo base_url(); ?>admin/peserta/peserta/filter/<?php echo $this->session->userdata['role_id']; ?>" class="button6">Laporan Data Peserta</a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <div class="column">
@@ -40,7 +44,11 @@
                             </div>
                             <div class="column">
                                 <div class="text-center" class="btn btn-primary btn-lg">
-                                    <a href="<?php echo base_url(); ?>admin/score/Filterscore" class="button6">Laporan Data Score EPT</a>
+                                    <?php if($this->session->userdata['role_id'] === '1'): ?>
+                                        <a href="<?php echo base_url(); ?>admin/score/Filterscore" class="button6">Laporan Data Score EPT</a>
+                                    <?php else: ?>
+                                        <a href="<?php echo base_url(); ?>admin/score/score/filter/<?php echo $this->session->userdata['role_id']; ?>" class="button6">Laporan Data Score EPT</a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
