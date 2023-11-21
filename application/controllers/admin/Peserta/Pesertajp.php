@@ -15,7 +15,45 @@ class Pesertajp extends CI_Controller
 
     public function index()
     {
-        $data['tbl_peserta_jp'] = $this->Datapeserta_modeljp->getAll()->result();
+        $this->load->library('pagination');
+		$config['base_url'] = base_url('admin/peserta/pesertajp/index'); // URL to the pagination page
+		$config['total_rows'] = $this->db->count_all('tbl_peserta_jp'); // Total number of records
+		$config['per_page'] = 10; // Number of records to show per page
+
+		// Styling for the pagination links
+		$config['full_tag_open'] = '<nav><ul class="pagination pagination-lg">';
+		$config['full_tag_close'] = '</ul></nav>';
+
+		$config['first_link'] = 'First';
+		$config['first_tag_open'] = '<li class="page-item">';
+		$config['first_tag_close'] = '</li>';
+
+		$config['last_link'] = 'Last';
+		$config['last_tag_open'] = '<li class="page-item">';
+		$config['last_tag_close'] = '</li>';
+		
+		$config['next_link'] = '&raquo';
+		$config['next_tag_open'] = '<li class="page-item">';
+		$config['next_tag_close'] = '</li>';
+		
+		$config['prev_link'] = '&laquo';
+		$config['prev_tag_open'] = '<li class="page-item">';
+		$config['prev_tag_close'] = '</li>';
+		
+		$config['cur_tag_open'] = '<li class="page-item active"><a class="page-link bg-light border-dark" href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+		
+		$config['num_tag_open'] = '<li class="page-item">';
+		$config['num_tag_close'] = '</li>';
+
+		$config['attributes'] = array('class' => 'page-link');
+
+		$this->pagination->initialize($config);
+		$page = $this->uri->segment(5);
+		$data['records'] = $this->Datapeserta_modeljp->get_records($config['per_page'], $page);
+		$data['pagination'] = $this->pagination->create_links();
+
+        // $data['tbl_peserta_jp'] = $this->Datapeserta_modeljp->getAll()->result();
         $this->load->view('tampilan/headerjp');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/peserta/view/viewpesertajp', $data);

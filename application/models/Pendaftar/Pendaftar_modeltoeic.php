@@ -2,6 +2,22 @@
 
 class Pendaftar_modeltoeic extends CI_Model
 {
+    public function get_records($limit, $offset) {
+        $this->db->from('tbl_registrant_toeic');
+        $this->db->join('tbl_event_toeic', 'tbl_registrant_toeic.id_event_toeic = tbl_event_toeic.id_event_toeic');
+        $this->db->join('tbl_peserta_toeic', 'tbl_registrant_toeic.id_peserta_toeic = tbl_peserta_toeic.id_peserta_toeic');
+        $this->db->join('tbl_fakultas', 'tbl_peserta_toeic.id_fakultas = tbl_fakultas.id_fakultas');
+		$this->db->join('tbl_prodi', 'tbl_peserta_toeic.id_prodi = tbl_prodi.id_prodi');
+		$this->db->limit($limit, $offset);
+		$query = $this->db->get();
+	
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return array();
+		}
+	}
+
     public function getAll()
     {
         return $this->db->query("

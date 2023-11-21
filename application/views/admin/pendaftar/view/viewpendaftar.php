@@ -12,9 +12,24 @@
 </header>
 
 <div class="card card-body blur shadow-blur mx-2 mx-md-3 mt-n6">
+	<div class="row" style="justify-content: flex-end;">
+		<div class="col-md-3">
+			<!-- Fitur Search -->
+			<form action="<?= base_url(); ?>" method="post">
+				<div class="input-group mb-3 gap-2">
+					<input type="text" class="form-control p-2" style="border: 1px solid #808080; height: 40px; border-radius: 5px;" placeholder="Search" name="keyword" autocomplete="off" >
+					<button class="btn btn-success" type="submit" name="submit" style="border-radius: 5px">search</button>
+				</div>
+			</form>
+			<!-- End of Fitur Search -->
+		</div>
+	</div>
+
 	<form method="post" action="<?php echo base_url('admin/pendaftar/pendaftar/deletee') ?>" id="form-delete">
+	<div class="table-responsive">
 		<div class="data-tables datatable-dark">
-			<table class="table table-bordered table-striped table-hover" id="dataTable1" style="width:100%">
+			<table class="table table-bordered table-striped table-hover" style="width:100%">
+			<!-- <table class="table table-bordered table-striped table-hover" id="dataTable1" style="width:100%"> -->
 				<thead>
 					<tr style="text-align: center;">
 						<th></th>
@@ -35,22 +50,22 @@
 				</thead>
 				<tbody>
 					<?php
-					$no = 1;
-					foreach ($tbl_registrant as $r) : ?>
+					$no = $this->uri->segment(5)+1 ?? 0;
+					foreach ($records as $r) : ?>
 						<tr style="text-align: center;">
 							<td><input type='checkbox' class='check-item' name='id_registrant[]' value='<?php echo $r->id_registrant ?>'></td>
 							<td width="20px"><?php echo $no++ ?></td>
-							<td><?php echo $r->tanggal ?></td>
-							<td><?php echo $r->typee ?></td>
-							<td><?php echo $r->waktu ?></td>
-							<td><?php echo $r->tempat ?></td>
-							<td><?php echo $r->nama ?></td>
-							<td><?php echo $r->statuss ?></td>
-							<td><?php echo $r->npmm ?></td>
-							<td><?php echo $r->emaill ?></td>
-							<td><?php echo $r->nohp ?></td>
-							<td><?php echo $r->fakultas ?></td>
-							<td><?php echo $r->prodi ?></td>
+							<td><?php echo $r->tanggal_event ?></td>
+							<td><?php echo $r->type ?></td>
+							<td><?php echo $r->time ?></td>
+							<td><?php echo $r->venue ?></td>
+							<td><?php echo $r->nama_peserta ?></td>
+							<td><?php echo $r->status ?></td>
+							<td><?php echo $r->npm ?></td>
+							<td><?php echo $r->email ?></td>
+							<td><?php echo $r->no_hp ?></td>
+							<td><?php echo $r->nama_fakultas ?></td>
+							<td><?php echo $r->nama_prodi ?></td>
 							<td style="text-align: center;">
 								<a href="<?php echo base_url(); ?>admin/pendaftar/pendaftar/delete/<?php echo $r->id_registrant; ?>" class="btn btn-sm btn-danger delete-button"><i class="fa fa-trash"></i></a>
 							</td>
@@ -58,13 +73,17 @@
 					<?php endforeach; ?>
 				</tbody>
 			</table>
-			<h6><input type="checkbox" id="check-all"> check all</h6>
-			<button class="button" id="btn-delete">
-				<svg viewBox="0 0 448 512" class="svgIcon">
-					<path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>
-				</svg>
-			</button>
 		</div>
+	</div>
+	<h6><input type="checkbox" id="check-all"> check all</h6>
+	<button class="button mb-1" id="btn-delete">
+		<svg viewBox="0 0 448 512" class="svgIcon">
+			<path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>
+		</svg>
+	</button>
+		<div class="pagination justify-content-center">
+   <?php echo $pagination; ?>
+</div>
 	</form>
 </div>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

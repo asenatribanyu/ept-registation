@@ -17,8 +17,29 @@ class Score extends CI_Controller
 
     public function index()
     {
+        $this->load->library('pagination');
+		$config['base_url'] = base_url('admin/score/score/index'); // URL to the pagination page
+		$config['total_rows'] = $this->db->count_all('tbl_score'); // Total number of records
+		$config['per_page'] = 10; // Number of records to show per page
+
+		// Styling for the pagination links
+		$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['num_tag_open'] = '<li>';
+		$config['num_tag_close'] = '</li>';
+		$config['prev_tag_open'] = '<li class="prev">';
+		$config['prev_tag_close'] = '</li>';
+		$config['next_tag_open'] = '<li class="next">';
+		$config['next_tag_close'] = '</li>';
+		$config['cur_tag_open'] = '<li class="active"><a href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+
+		$this->pagination->initialize($config);
+		$page = $this->uri->segment(5);
+		$data['records'] = $this->Score_model->get_records($config['per_page'], $page);
+		$data['pagination'] = $this->pagination->create_links();
         $data['title'] = 'Import Excel';
-        $data['tbl_score'] = $this->db->get('tbl_score')->result();
+        // $data['tbl_score'] = $this->db->get('tbl_score')->result();
         $this->load->view('tampilan/header');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/score/view/viewscore', $data);

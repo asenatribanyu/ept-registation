@@ -14,8 +14,61 @@
 <div class="card card-body blur shadow-blur mx-2 mx-md-3 mt-n6">
 
     <?php echo $this->session->flashdata('pesan') ?>
+    <div class="row" style="justify-content: flex-end;">
+			<div class="col-md-3">
+				<!-- Fitur Search -->
+				<form action="<?= base_url(); ?>" method="post">
+					<div class="input-group mb-3 gap-2">
+						<input type="text" class="form-control p-2" style="border: 1px solid #808080; height: 40px; border-radius: 5px;" placeholder="Search" name="keyword" autocomplete="off" >
+						<button class="btn btn-success" type="submit" name="submit" style="border-radius: 5px">search</button>
+					</div>
+				</form>
+				<!-- End of Fitur Search -->
+			</div>
+		</div>
     <form method="post" action="<?php echo base_url('admin/peserta/pesertaalumni/deletee') ?>" id="form-delete">
-        <div class="data-tables datatable-dark">
+            <div class="data-tables datatable-dark">
+				<table class="table table-bordered table-striped table-hover" style="width: 100%;">
+					<thead>
+						<tr style="text-align: center;">
+							<th> </th>
+							<th>No</th>
+							<th>Nama Lengkap</th>
+							<th>Status</th>
+							<th>NPM / NIK</th>
+							<th>Email</th>
+							<th>No HP</th>
+							<th>Fakultas</th>
+							<th>Prodi</th>
+							<th style="width: 70px;">Aksi</th>
+						</tr>
+					</thead>
+					<tbody>
+                        <?php
+                        $no = $this->uri->segment(5)+1 ?? 0;
+                        foreach ($records as $p) : ?>
+                            <tr style="text-align: center;">
+                                <td><input type='checkbox' class='check-item' name='id_peserta_alumni[]' value='<?php echo $p->id_peserta_alumni ?>'></td>
+                                <td width="20px"><?php echo $no++ ?></td>
+                                <td><?php echo $p->nama ?></td>
+                                <td><?php echo $p->status ?></td>
+                                <td><?php echo $p->npm ?></td>
+                                <td><?php echo $p->email ?></td>
+                                <td><?php echo $p->nohp ?></td>
+                                <td><?php echo $p->fakultas ?></td>
+                                <td><?php echo $p->prodi ?></td>
+                                <td style="text-align: center;">
+                                    <a href="<?php echo base_url(); ?>admin/peserta/pesertaalumni/update/<?php echo $p->id_peserta_alumni; ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                                    <a href="<?php echo base_url(); ?>admin/peserta/pesertaalumni/delete/<?php echo $p->id_peserta_alumni; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+				</table>
+				<h6><input type="checkbox" id="check-all"> check all</h6>
+				<button type="button" id="btn-delete" class="btn btn-danger mb-5"><i class="fa fa-trash"></i> Delete</button>
+			</div>
+        <!-- <div class="data-tables datatable-dark">
             <table class="table table-bordered table-striped table-hover" id="dataTable1" style="width:100%">
                 <thead>
                     <tr style="text-align: center;">
@@ -33,15 +86,15 @@
                 </thead>
                 <tbody>
                     <?php
-                    $no = 1;
-                    foreach ($tbl_peserta_alumni as $p) : ?>
+                    $no = $this->uri->segment(5)+1 ?? 0;
+                    foreach ($records as $p) : ?>
                         <tr style="text-align: center;">
                             <td><input type='checkbox' class='check-item' name='id_peserta_alumni[]' value='<?php echo $p->id_peserta_alumni ?>'></td>
                             <td width="20px"><?php echo $no++ ?></td>
                             <td><?php echo $p->nama ?></td>
-                            <td><?php echo $p->statuss ?></td>
-                            <td><?php echo $p->npmm ?></td>
-                            <td><?php echo $p->emaill ?></td>
+                            <td><?php echo $p->status ?></td>
+                            <td><?php echo $p->npm ?></td>
+                            <td><?php echo $p->email ?></td>
                             <td><?php echo $p->nohp ?></td>
                             <td><?php echo $p->fakultas ?></td>
                             <td><?php echo $p->prodi ?></td>
@@ -55,6 +108,9 @@
             </table>
             <h6><input type="checkbox" id="check-all"> check all</h6>
             <button type="button" id="btn-delete" class="btn btn-danger mb-5"><i class="fa fa-trash"></i> Delete</button>
-        </div>
+        </div> -->
+        <div class="pagination justify-content-center">
+   <?php echo $pagination; ?>
+</div>
     </form>
 </div>
