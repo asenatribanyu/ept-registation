@@ -152,6 +152,7 @@ Created by pixpalette.com - online design magazine -->
                                             <th>Sec2</th>
                                             <th>Sec3</th>
                                             <th>Score</th>
+                                            <th>Certificate</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -166,6 +167,7 @@ Created by pixpalette.com - online design magazine -->
                                                 <td><?= $row['sec2'] ?></td>
                                                 <td><?= $row['sec3'] ?></td>
                                                 <td><?= $row['score'] ?></td>
+                                                <td><a href="<?php echo base_url(); ?>search/certificate/<?php echo $row['id_score']; ?>" class="btn btn-sm btn-primary">Download</a></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

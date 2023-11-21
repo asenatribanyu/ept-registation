@@ -2,6 +2,21 @@
 
 class Datapeserta_modeljp extends CI_Model
 {
+    public function get_records($limit, $offset) {
+		$this->db->select('tbl_peserta_jp.nama_peserta, tbl_peserta_jp.id_peserta_jp, tbl_prodi.nama_prodi, tbl_fakultas.nama_fakultas, tbl_peserta_jp.status, tbl_peserta_jp.npm, tbl_peserta_jp.email, tbl_peserta_jp.no_hp, tbl_peserta_jp.id_fakultas, tbl_peserta_jp.id_prodi, tbl_peserta_jp.waktu_input');
+		$this->db->from('tbl_peserta_jp');
+		$this->db->join('tbl_fakultas', 'tbl_peserta_jp.id_fakultas = tbl_fakultas.id_fakultas');
+		$this->db->join('tbl_prodi', 'tbl_peserta_jp.id_prodi = tbl_prodi.id_prodi');
+		$this->db->limit($limit, $offset);
+		$query = $this->db->get();
+	
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return array();
+		}
+	}
+
     public function getAll()
     {
         return $this->db->query("

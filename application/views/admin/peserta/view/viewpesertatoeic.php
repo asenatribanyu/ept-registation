@@ -12,11 +12,22 @@
 </header>
 
 <div class="card card-body blur shadow-blur mx-2 mx-md-3 mt-n6">
-
+<div class="row" style="justify-content: flex-end;">
+			<div class="col-md-3">
+				<!-- Fitur Search -->
+				<form action="<?= base_url(); ?>" method="post">
+					<div class="input-group mb-3 gap-2">
+						<input type="text" class="form-control p-2" style="border: 1px solid #808080; height: 40px; border-radius: 5px;" placeholder="Search" name="keyword" autocomplete="off" >
+						<button class="btn btn-success" type="submit" name="submit" style="border-radius: 5px">search</button>
+					</div>
+				</form>
+				<!-- End of Fitur Search -->
+			</div>
+		</div>
     <?php echo $this->session->flashdata('pesan') ?>
     <form method="post" action="<?php echo base_url('admin/peserta/pesertatoeic/deletee') ?>" id="form-delete">
         <div class="data-tables datatable-dark">
-            <table class="table table-bordered table-striped table-hover" id="dataTable1" style="width:100%">
+            <table class="table table-bordered table-striped table-hover" style="width:100%">
                 <thead>
                     <tr style="text-align: center;">
                         <th> </th>
@@ -33,18 +44,18 @@
                 </thead>
                 <tbody>
                     <?php
-                    $no = 1;
-                    foreach ($tbl_peserta_toeic as $p) : ?>
+                    $no = $this->uri->segment(5)+1 ?? 0;
+                    foreach ($records as $p) : ?>
                         <tr style="text-align: center;">
                             <td><input type='checkbox' class='check-item' name='id_peserta_toeic[]' value='<?php echo $p->id_peserta_toeic ?>'></td>
                             <td width="20px"><?php echo $no++ ?></td>
-                            <td><?php echo $p->nama ?></td>
-                            <td><?php echo $p->statuss ?></td>
-                            <td><?php echo $p->npmm ?></td>
-                            <td><?php echo $p->emaill ?></td>
-                            <td><?php echo $p->nohp ?></td>
-                            <td><?php echo $p->fakultas ?></td>
-                            <td><?php echo $p->prodi ?></td>
+                            <td><?php echo $p->nama_peserta ?></td>
+                            <td><?php echo $p->status ?></td>
+                            <td><?php echo $p->npm ?></td>
+                            <td><?php echo $p->email ?></td>
+                            <td><?php echo $p->no_hp ?></td>
+                            <td><?php echo $p->nama_fakultas ?></td>
+                            <td><?php echo $p->nama_prodi ?></td>
                             <td style="text-align: center;">
                                 <a href="<?php echo base_url(); ?>admin/peserta/pesertatoeic/update/<?php echo $p->id_peserta_toeic; ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
                                 <a href="<?php echo base_url(); ?>admin/peserta/pesertatoeic/delete/<?php echo $p->id_peserta_toeic; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
@@ -54,7 +65,10 @@
                 </tbody>
             </table>
             <h6><input type="checkbox" id="check-all"> check all</h6>
-            <button type="button" id="btn-delete" class="btn btn-danger mb-5"><i class="fa fa-trash"></i> Delete</button>
+            <button type="button" id="btn-delete" class="btn btn-danger mb-1"><i class="fa fa-trash"></i> Delete</button>
         </div>
+        <div class="pagination justify-content-center">
+   <?php echo $pagination; ?>
+</div>
     </form>
 </div>

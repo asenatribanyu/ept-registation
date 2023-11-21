@@ -2,6 +2,21 @@
 
 class Pendaftar_model extends CI_Model
 {
+    public function get_records($limit, $offset) {
+        $this->db->from('tbl_registrant');
+        $this->db->join('tbl_event', 'tbl_registrant.id_event = tbl_event.id_event');
+        $this->db->join('tbl_peserta', 'tbl_registrant.id_peserta = tbl_peserta.id_peserta');
+        $this->db->join('tbl_fakultas', 'tbl_peserta.id_fakultas = tbl_fakultas.id_fakultas');
+		$this->db->join('tbl_prodi', 'tbl_peserta.id_prodi = tbl_prodi.id_prodi');
+		$this->db->limit($limit, $offset);
+		$query = $this->db->get();
+	
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return array();
+		}
+	}
     public function getAll()
     {
         return $this->db->query("

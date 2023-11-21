@@ -12,12 +12,26 @@
 </header>
 
 <div class="card card-body blur shadow-blur mx-2 mx-md-3 mt-n6">
+    <div class="row" style="justify-content: flex-end;">
+		<div class="col-md-3">
+			<!-- Fitur Search -->
+			<form action="<?= base_url(); ?>" method="post">
+				<div class="input-group mb-3 gap-2">
+					<input type="text" class="form-control p-2" style="border: 1px solid #808080; height: 40px; border-radius: 5px;" placeholder="Search" name="keyword" autocomplete="off" >
+					<button class="btn btn-success" type="submit" name="submit" style="border-radius: 5px">search</button>
+				</div>
+			</form>
+			<!-- End of Fitur Search -->
+		</div>
+	</div>
 
     <?php echo $this->session->flashdata('pesan') ?>
 
     <form method="post" action="<?php echo base_url('admin/pendaftar/pendaftaralumni/deletee') ?>" id="form-delete">
+    <div class="table-responsive">
         <div class="data-tables datatable-dark">
-            <table class="table table-bordered table-striped table-hover" id="dataTable1" style="width:100%">
+            <table class="table table-bordered table-striped table-hover" style="width:100%">
+            <!-- <table class="table table-bordered table-striped table-hover" id="dataTable1" style="width:100%"> -->
                 <thead>
                     <tr style="text-align: center;">
                         <th></th>
@@ -38,22 +52,22 @@
                 </thead>
                 <tbody>
                     <?php
-                    $no = 1;
-                    foreach ($tbl_registrant_alumni as $r) : ?>
+                    $no = $this->uri->segment(5)+1 ?? 0;
+                    foreach ($records as $r) : ?>
                         <tr style="text-align: center;">
                             <td><input type='checkbox' class='check-item' name='id_registrant_alumni[]' value='<?php echo $r->id_registrant_alumni ?>'></td>
                             <td width="20px"><?php echo $no++ ?></td>
-                            <td><?php echo $r->tanggal ?></td>
-                            <td><?php echo $r->typee ?></td>
-                            <td><?php echo $r->waktu ?></td>
-                            <td><?php echo $r->tempat ?></td>
-                            <td><?php echo $r->nama ?></td>
-                            <td><?php echo $r->statuss ?></td>
-                            <td><?php echo $r->npmm ?></td>
-                            <td><?php echo $r->emaill ?></td>
-                            <td><?php echo $r->nohp ?></td>
-                            <td><?php echo $r->fakultas ?></td>
-                            <td><?php echo $r->prodi ?></td>
+                            <td><?php echo $r->tanggal_event ?></td>
+							<td><?php echo $r->type ?></td>
+							<td><?php echo $r->time ?></td>
+							<td><?php echo $r->venue ?></td>
+							<td><?php echo $r->nama_peserta ?></td>
+							<td><?php echo $r->status ?></td>
+							<td><?php echo $r->npm ?></td>
+							<td><?php echo $r->email ?></td>
+							<td><?php echo $r->no_hp ?></td>
+							<td><?php echo $r->nama_fakultas ?></td>
+							<td><?php echo $r->nama_prodi ?></td>
                             <td style="text-align: center;">
                                 <a href="<?php echo base_url(); ?>admin/pendaftar/pendaftaralumni/delete/<?php echo $r->id_registrant_alumni; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                             </td>
@@ -61,8 +75,12 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <h6><input type="checkbox" id="check-all"> check all</h6>
-            <button type="button" id="btn-delete" class="btn btn-danger mb-5"><i class="fa fa-trash"></i> Delete</button>
         </div>
+    </div>
+    <h6><input type="checkbox" id="check-all"> check all</h6>
+    <button type="button" id="btn-delete" class="btn btn-danger mb-5"><i class="fa fa-trash"></i> Delete</button>
+        <div class="pagination justify-content-center">
+   <?php echo $pagination; ?>
+</div>
     </form>
 </div>
