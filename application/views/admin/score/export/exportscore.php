@@ -13,7 +13,7 @@
 
 	<!-- Button trigger modal -->
 	<button type="button" class="btn btn-info mx-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-	Filter
+	Export
 	</button>
 
 	<!-- Modal -->
@@ -25,14 +25,14 @@
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
-			<form>
+			<form action="<?= base_url('admin/score/score/export_filter'); ?>" method="POST">
 				<div class="mb-3">
 					<label for="jdata" class="form-label">Jumlah Data</label>
-					<input type="text" class="form-control border p-1" id="jdata">
+					<input type="number" class="form-control border p-1" id="jdata" name="jumlahData">
 				</div>
 				<div class="mb-3">
-					<label for="jscore" class="form-label">Jumlah Score</label>
-					<input type="text" class="form-control border p-1" id="jscore">
+					<!-- <label for="jscore" class="form-label">Jumlah Score</label> -->
+					<input type="hidden" class="form-control border p-1" id="jscore" name="jumlahScore">
 				</div>
 
 				<div class="form-row">
@@ -65,7 +65,7 @@
 						</select>
 					</div>
 				</div>
-			</form> 
+			
 			<!-- <div class="btn-group dropend">
 				<button type="button" class="btn rounded-3 btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 					Jumlah Data
@@ -95,8 +95,9 @@
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-			<button type="button" class="btn btn-info">Save changes</button>
+			<button type="submit" class="btn btn-info">Save changes</button>
 		</div>
+		</form> 
 		</div>
 	</div>
 	</div>
