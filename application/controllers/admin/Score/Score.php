@@ -8,6 +8,7 @@ class Score extends CI_Controller
     {
         parent::__construct();
         $this->load->model('score/Score_model');
+        $this->load->model('event/Event_model');
         $this->load->library('form_validation');
         $this->load->helper('url', 'form');
         if (!isset($this->session->userdata['username'])) {
@@ -288,6 +289,7 @@ class Score extends CI_Controller
     public function export()
     {
         $data['tbl_score'] = $this->Score_model->getAll()->result();
+        $data['tbl_event'] = $this->Event_model->getAll()->result();
         $this->load->view('tampilan/header');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/score/export/exportscore', $data);

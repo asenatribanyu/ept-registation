@@ -9,6 +9,13 @@ class Event_model extends CI_Model
       parent::__construct();
    }
 
+   public function getAll()
+    {
+        return $this->db->query("
+        SELECT * from tbl_event
+        ");
+    }
+
    public function get($id_event = null)
    {
       $this->db->from("tbl_event");

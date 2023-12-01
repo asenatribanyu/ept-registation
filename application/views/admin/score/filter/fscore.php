@@ -22,10 +22,10 @@
                         </button>
                         <ul class="dropdown-menu ">
                             <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/2">Ekonomi & Bisnis</a></li>
-                            <li><a class="dropdown-item" href=" ">Teknik</a></li>
-                            <li><a class="dropdown-item" href=" ">Ilmu Budaya</a></li>
-                            <li><a class="dropdown-item" href=" ">Desain Komunikasi & Visual</a></li>
-                            <li><a class="dropdown-item" href=" ">Ilmu Sosial & Politik</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/3 ">Teknik</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/4 ">Ilmu Budaya</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/5 ">Desain Komunikasi & Visual</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/6 ">Ilmu Sosial & Politik</a></li>
                         </ul>
                     </div>
                     <div class="btn-group dropup">
@@ -33,32 +33,32 @@
                             Berdasarkan Program Studi
                         </button>
                         <ul class="dropdown-menu scrollable-menu">
-                            <li><a class="dropdown-item" href=" ">Akuntansi S1</a></li>
-                            <li><a class="dropdown-item" href=" ">Akuntansi D3</a></li>
-                            <li><a class="dropdown-item" href=" ">Magister Akuntansi</a></li>
-                            <li><a class="dropdown-item" href=" ">Program Profesi Akuntansi (PPAk)</a></li>
-                            <li><a class="dropdown-item" href=" ">Manajemen S1</a></li>
-                            <li><a class="dropdown-item" href=" ">Manajemen D3</a></li>
-                            <li><a class="dropdown-item" href=" ">Magister Manajemen</a></li>
-                            <li><a class="dropdown-item" href=" ">Perdagangan Internasional S1</a></li>
+                        <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/7">Akuntansi S1</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/8">Akuntansi D3</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/28">Magister Akuntansi</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/9">Program Profesi Akuntansi (PPAK)</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/10">Manajemen S1</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/11">Manajemen D3</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/12">Magister Manajemen</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/23">Perdagangan Internasional S1</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href=" ">Teknik Informatika S1</a></li>
-                            <li><a class="dropdown-item" href=" ">Teknik Industri S1</a></li>
-                            <li><a class="dropdown-item" href=" ">Sistem Informasi S1</a></li>
-                            <li><a class="dropdown-item" href=" ">Teknik Elektro S1</a></li>
-                            <li><a class="dropdown-item" href=" ">Teknik Mesin D3</a></li>
-                            <li><a class="dropdown-item" href=" ">Teknik Mesin S1</a></li>
-                            <li><a class="dropdown-item" href=" ">Teknik Sipil S1</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/13">Teknik Informatika S1</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/14">Teknik Industri S1</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/26">Sistem Informasi S1</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/15">Teknik Elektro S1</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/27">Teknik Mesin D3</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/16">Teknik Mesin S1</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/17">Teknik Sipil S1</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href=" ">Bahasa Jepang S1</a></li>
-                            <li><a class="dropdown-item" href=" ">Bahasa Jepang D3</a></li>
-                            <li><a class="dropdown-item" href=" ">Bahasa Inggris S1</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/18">Bahasa Jepang S1</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/19">Bahasa Jepang D3</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/20">Bahasa Inggris S1</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href=" ">Desain Grafis D4</a></li>
-                            <li><a class="dropdown-item" href=" ">Multimedia D3</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/22">Desain Grafis D4</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/21">Multimedia D3</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href=" ">Perpustakaan & Sains Informasi</a></li>
-                            <li><a class="dropdown-item" href=" ">Produksi Film & Televisi</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/24">Perpustakaan & Sains Informasi</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url(); ?>admin/score/score/filter/25">Produksi Film & Televisi</a></li>
                         </ul>
                     </div>
                     <div class="text-center" class="btn btn-info btn-lg">
