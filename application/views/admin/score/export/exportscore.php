@@ -26,19 +26,19 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<form>
+					<form action="<?= base_url('admin/score/score/filter_data'); ?>" method="POST">
 						<div class="mb-3">
 							<label for="jdata" class="form-label">Jumlah Pengulangan Test</label>
-							<input type="text" class="form-control border p-1" id="ngulang">
+							<input type="number" class="form-control border p-1" id="ngulang" name="pengulangan">
 						</div>
 
-						<select class="form-select border p-1 mb-3" aria-label="select score">
+						<select class="form-select border p-1 mb-3" aria-label="select score" name="nilai">
 							<option selected>Score</option>
 							<option value="max">Max</option>
 							<option value="min">Min</option>
 						</select>
 
-						<select class="form-select border p-1 mb-3" aria-label="select tanggal">
+						<select class="form-select border p-1 mb-3" aria-label="select tanggal" name="event">
 							<option selected>Tanggal</option>
 							<?php foreach ($tbl_event as $event) :?>
 							<option value="max"><?php echo $event->tanggal_event?></option>
@@ -49,6 +49,7 @@
 							<div class="form-group col-md-6">
 								<label for="startYear">Tahun Awal</label>
 								<select class="form-control border p-1" id="startYear" name="startYear">
+								<option value="">Tahun Awal</option>
 								<?php
 								// Ambil tahun saat ini
 								$currentYear = date("Y");
@@ -66,6 +67,7 @@
 							<div class="form-group col-md-6">
 								<label for="endYear">Tahun Akhir</label>
 								<select class="form-control border p-1" id="endYear" name="endYear">
+								<option value="">Tahun Akhir</option>
 								<?php
 								// Loop untuk membuat pilihan tahun (sama seperti sebelumnya)
 								for ($year = $currentYear; $year >= $startYear; $year--) {
@@ -75,12 +77,13 @@
 								</select>
 							</div>
 						</div>
-					</form>
+					
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-info">Save changes</button>
+					<button type="submit" class="btn btn-info">Save changes</button>
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>
