@@ -20,19 +20,20 @@
                 </div>
                 <div class="card-body card-block">
                     <div class="col-md-12">
-                        <form id="bgcertificate" action="<?php echo base_url('#'); ?>" method="POST" enctype="multipart/form-data">
+                    <?php echo form_open_multipart('admin/certificate/upload_template');?>
+                        <!-- <form id="bgcertificate" action="<?php echo base_url('admin/certificate/upload_template'); ?>" method="POST" enctype="multipart/form-data"> -->
                             <div class="input">
                                 <input type="file" name="datafile" required>
-                                <span class="text-secondary">File yang harus diupload: .jpg, .jpeg, .png</span>
+                                <span class="text-secondary">File yang harus diupload: .png</span>
                             </div>
                             <button type="submit" class="btn mx-auto btn-primary"><i class="fas fa-upload mr-1"></i>Upload Background Certificate</button><br>
                         </form>
-                        <div id="loader" style="display: none;">
-                            <div class="spinner-border text-primary" role="status">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
-                            <span class="text-primary">Restoring database...</span>
-                        </div>
+                        <?php if (!empty($error)) {
+                                echo $error;
+                            }?>
+                            <?php if (!empty($success)) {
+                                echo $success;
+                            }?>
                     </div>
                 </div>
             </div>
