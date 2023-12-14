@@ -16,17 +16,23 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="card-header py-3">
-                    <h6>Background Certificate</h6>
+                    <h6>Background & Font Certificate</h6>
                 </div>
                 <div class="card-body card-block">
                     <div class="col-md-12">
-                    <?php echo form_open_multipart('admin/certificate/upload_template');?>
+                        <?php echo form_open_multipart('admin/certificate/upload_template');?>
                         <!-- <form id="bgcertificate" action="<?php echo base_url('admin/certificate/upload_template'); ?>" method="POST" enctype="multipart/form-data"> -->
+                        <div class="container">
                             <div class="input">
                                 <input type="file" name="datafile" required>
                                 <span class="text-secondary">File yang harus diupload: .png</span>
                             </div>
-                            <button type="submit" class="btn mx-auto btn-primary"><i class="fas fa-upload mr-1"></i>Upload Background Certificate</button><br>
+                            <div class="input">
+                                <input type="file" name="datafile" required>
+                                <span class="text-secondary">File yang harus diupload: .ttf</span>
+                            </div>
+                        </div>
+                            <button type="submit" class="btn mx-auto btn-primary"><i class="fas fa-upload mr-1"></i>Upload Background/Font Certificate</button><br>
                         </form>
                         <?php if (!empty($error)) {
                                 echo $error;
@@ -44,6 +50,12 @@
 <style>
     .row {
         justify-content: center;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
     }
 
     #bgcertificate {

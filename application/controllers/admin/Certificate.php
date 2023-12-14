@@ -24,7 +24,7 @@ class Certificate extends CI_Controller {
 	{
 		$config['upload_path']   = 'assets/sertifikat/';
 		$config['allowed_types'] = 'png';
-		$config['file_name']     = 'TemplateCertificate.png';
+		$config['file_name']     = 'TemplateCertificate';
 		$this->load->library('upload', $config);
 
 		if ( ! $this->upload->do_upload('datafile'))
@@ -37,8 +37,8 @@ class Certificate extends CI_Controller {
 				}
                 else
                 {
-                        $data = array('upload_data' => $this->upload->data());
 						unlink('assets/sertifikat/TemplateCertificate.png');
+                        $data = array('upload_data' => $this->upload->data());
 						$this->load->view('tampilan/header');
 						$this->load->view('tampilan/navbar');
 						$this->load->view('admin/certificate/viewcertificate',$data); 
