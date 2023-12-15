@@ -73,31 +73,31 @@ window.onload = function () {
     var chart = new CanvasJS.Chart("donutchart",
     {
         title:{
-        text: "Ujian 1",
-        fontFamily: "Impact",
-        fontWeight: "normal"
+            text: "Ujian 1",
+            fontFamily: "Impact",
+            fontWeight: "normal"
         },
 
         legend:{
-        verticalAlign: "bottom",
-        horizontalAlign: "center"
+            verticalAlign: "bottom",
+            horizontalAlign: "center"
         },
         data: [
-        {
-        //startAngle: 45,
-        indexLabelFontSize: 20,
-        indexLabelFontFamily: "Garamond",
-        indexLabelFontColor: "darkgrey",
-        indexLabelLineColor: "darkgrey",
-        indexLabelPlacement: "outside",
-        type: "doughnut",
-        showInLegend: true,
-        dataPoints: [
-        {  y: 50, legendText:"Section 1", indexLabel: "Section 1" },
-        {  y: 50, legendText:"Section 2", indexLabel: "Section 2" },
-        {  y: 50, legendText:"Section 3", indexLabel: "Section 3" },
-        ]
-        }
+            {
+                //startAngle: 45,
+                indexLabelFontSize: 20,
+                indexLabelFontFamily: "Garamond",
+                indexLabelFontColor: "darkgrey",
+                indexLabelLineColor: "darkgrey",
+                indexLabelPlacement: "outside",
+                type: "doughnut",
+                showInLegend: true,
+                dataPoints: [
+                    {  y: 50, legendText:"Section 1", indexLabel: "Section 1" },
+                    {  y: 50, legendText:"Section 2", indexLabel: "Section 2" },
+                    {  y: 50, legendText:"Section 3", indexLabel: "Section 3" },
+                ]
+            }
         ]
     });
 
