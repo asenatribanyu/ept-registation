@@ -350,4 +350,12 @@ class Score extends CI_Controller
             redirect('admin/score/score');
         }
     }
+
+    public function detail($id) {
+        
+        $this->load->view('tampilan/header');
+        $this->load->view('tampilan/navbar');
+        $this->load->view('admin/score/filter/detail');
+        $this->load->view('tampilan/footer');
+    }
 }
