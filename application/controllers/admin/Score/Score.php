@@ -362,11 +362,13 @@ class Score extends CI_Controller
         }
     }
 
-    public function detail($id) {
-        
+    public function detail($id, $npm) {
+        $data['peserta'] = $this->Score_model->cari_data($id)->result();
+        $data['score'] = $this->Score_model->pengulangan($npm)->result();
+        $data['pengulangan'] = count($data['score']);
         $this->load->view('tampilan/header');
         $this->load->view('tampilan/navbar');
-        $this->load->view('admin/score/filter/detail');
+        $this->load->view('admin/score/filter/detail',$data);
         $this->load->view('tampilan/footer');
     }
 }

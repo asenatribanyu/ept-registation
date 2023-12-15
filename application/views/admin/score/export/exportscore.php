@@ -189,7 +189,7 @@
 						<td><?php echo $s->sec3 ?></td>
 						<td><?php echo $s->score ?></td>
 						<td style="text-align: center;">
-							<a href="<?php echo base_url(); ?>admin/score/score/detail/<?php echo $s->id_score; ?>" class="btn btn-sm btn-primary update-button"><i class="fa fa-edit"></i></a>
+							<a href="<?php echo base_url(); ?>admin/score/score/detail/<?php echo $s->id_score; ?>/<?php echo $s->npm ?>" class="btn btn-sm btn-primary update-button"><i class="fa fa-edit"></i></a>
 						</td>
 					</tr>
 				<?php endforeach; ?>

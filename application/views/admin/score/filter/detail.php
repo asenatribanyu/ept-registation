@@ -4,20 +4,23 @@
             <h2>Data Mahasiswa</h2>
             <div class="card">
                 <div class="card-body">
+                <?php
+                foreach ($peserta as $peserta) :?>
                     <h5 class="card-title">Nama Mahasiswa</h5>
-                    <p class="card-text" id="nama">Muhammad Gilang Ariyana</p>
+                    <p class="card-text" id="nama"><?php echo $peserta->nama ?></p>
                     
                     <h5 class="card-title">NPM</h5>
-                    <p class="card-text" id="npm">0620101021</p>
+                    <p class="card-text" id="npm"><?php echo $peserta->npm ?></p>
                     
                     <h5 class="card-title">Fakultas</h5>
-                    <p class="card-text" id="fakultas">Teknik</p>
+                    <p class="card-text" id="fakultas"><?php echo $peserta->nama_fakultas ?></p>
                     
                     <h5 class="card-title">Program Studi</h5>
-                    <p class="card-text" id="prodi">Informatika</p>
+                    <p class="card-text" id="prodi"><?php echo $peserta->nama_prodi ?></p>
                     
                     <h5 class="card-title">Jumlah Pengulangan Ujian</h5>
-                    <p class="card-text" id="jumlah_pengulangan">5</p>
+                    <p class="card-text" id="jumlah_pengulangan"><?php echo $pengulangan ?></p>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
@@ -29,15 +32,27 @@
 
     <div class="col-md-6">
         <h2>Hasil Setiap Ujian</h2>
-        <div id="donutchart" style="height: 300px; width: 100%;"></div>
+        <?php $no = 1;
+            for($i = 1; $i <= $pengulangan;$i++) :?>
+        <div id="donutchart<?php echo $no++ ?>" style="height: 300px; width: 100%;"></div>
+        <?php endfor; ?>
     </div>
 </div>
 
-
+<?php 
+$dataPoints = array();
+$data = array();
+$no = 1;
+foreach($score as $score){
+    $data[] = array("sec1" => $score->sec1 , "sec2" => $score->sec2 , "sec3" => $score->sec3);
+    $dataPoints[] = array("x" => $no, "y" => $score->score, "label" => "ujian ke-" . $no++, );
+}
+?>
 <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 <script type="text/javascript">
 
 window.onload = function () {
+    <?php echo "var dataPoints = " . json_encode($dataPoints, JSON_NUMERIC_CHECK) . ";"; ?>
     var chart = new CanvasJS.Chart("chartContainer",
     {
         title:{
@@ -58,22 +73,17 @@ window.onload = function () {
             showInLegend: true, 
             legendMarkerType: "none",
             legendText: "Hasil Ujian",
-            dataPoints: [      
-            { x: 1, y: 423, label: "Ujian 1"},
-            { x: 2, y: 410, label: "Ujian 2" },
-            { x: 3, y: 417, label: "Ujian 3"},
-            { x: 4, y: 430, label: "Ujian 4"},
-            { x: 5, y: 400, label: "Ujian 5"},
-            ]
+            dataPoints: dataPoints
         }
     ]
     });
     chart.render();
-
-    var chart = new CanvasJS.Chart("donutchart",
+    <?php $no = 1;
+    foreach($data as $data) :?>
+    var chart = new CanvasJS.Chart("donutchart" + <?php echo $no ?>,
     {
         title:{
-            text: "Ujian 1",
+            text: "Ujian " + <?php echo $no++ ?>,
             fontFamily: "Impact",
             fontWeight: "normal"
         },
@@ -93,15 +103,16 @@ window.onload = function () {
                 type: "doughnut",
                 showInLegend: true,
                 dataPoints: [
-                    {  y: 50, legendText:"Section 1", indexLabel: "Section 1" },
-                    {  y: 50, legendText:"Section 2", indexLabel: "Section 2" },
-                    {  y: 50, legendText:"Section 3", indexLabel: "Section 3" },
+                    {  y: <?php echo $data['sec1'] ?>, legendText:"Section 1", indexLabel: "<?php echo $data['sec1'] ?>" },
+                    {  y: <?php echo $data['sec2'] ?>, legendText:"Section 2", indexLabel: "<?php echo $data['sec2'] ?>" },
+                    {  y: <?php echo $data['sec3'] ?>, legendText:"Section 3", indexLabel: "<?php echo $data['sec3'] ?>" },
                 ]
             }
         ]
     });
 
     chart.render();
+    <?php endforeach; ?>
 }
 
 </script>
