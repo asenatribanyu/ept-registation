@@ -296,6 +296,17 @@ class Score extends CI_Controller
         $this->load->view('tampilan/footer');
     }
 
+    public function filter_data(){
+
+        $this->input->post('pengulangan');
+        $this->input->post('nilai');
+        $this->input->post('event');
+        $this->input->post('startYear');
+        $this->input->post('endYear');
+        
+        
+    }
+
     public function _rules()
     {
         $this->form_validation->set_rules('tanggal', 'tanggal', 'required', ['required' => 'Tanggal Test wajib diisi!']);
