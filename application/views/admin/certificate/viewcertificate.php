@@ -21,14 +21,13 @@
                 <div class="card-body card-block">
                     <div class="col-md-12">
                         <?php echo form_open_multipart('admin/certificate/upload_template');?>
-                        <!-- <form id="bgcertificate" action="<?php echo base_url('admin/certificate/upload_template'); ?>" method="POST" enctype="multipart/form-data"> -->
                         <div class="container">
                             <div class="input">
-                                <input type="file" name="datafile" required>
+                                <input type="file" name="datafile">
                                 <span class="text-secondary">File yang harus diupload: .png</span>
                             </div>
                             <div class="input">
-                                <input type="file" name="datafile" required>
+                                <input type="file" name="fontfile">
                                 <span class="text-secondary">File yang harus diupload: .ttf</span>
                             </div>
                         </div>

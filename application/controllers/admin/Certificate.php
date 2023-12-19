@@ -20,29 +20,49 @@ class Certificate extends CI_Controller {
         $this->load->view('tampilan/footer');
     }
 
-	public function upload_template()
-	{
-		$config['upload_path']   = 'assets/sertifikat/';
-		$config['allowed_types'] = 'png';
-		$config['file_name']     = 'TemplateCertificate';
-		$this->load->library('upload', $config);
+	public function upload_template(){
+	if (!empty($_FILES['datafile']['name'])) {
+		// Configuration for certificate background image upload
+		$config_certificate['upload_path']   = 'assets/sertifikat/';
+		$config_certificate['allowed_types'] = 'png';
+		$config_certificate['file_name']     = 'TemplateCertificate';
+		$config_certificate['overwrite']     = true;
+		$this->load->library('upload', $config_certificate);
 
-		if ( ! $this->upload->do_upload('datafile'))
-                {
-                        $error = array('error' => $this->upload->display_errors());
-						$this->load->view('tampilan/header');
-						$this->load->view('tampilan/navbar');
-						$this->load->view('admin/certificate/viewcertificate', $error); 
-						$this->load->view('tampilan/footer');
-				}
-                else
-                {
-						unlink('assets/sertifikat/TemplateCertificate.png');
-                        $data = array('upload_data' => $this->upload->data());
-						$this->load->view('tampilan/header');
-						$this->load->view('tampilan/navbar');
-						$this->load->view('admin/certificate/viewcertificate',$data); 
-						$this->load->view('tampilan/footer');
-                }
+		// Perform certificate background image upload
+		if (!$this->upload->do_upload('datafile')) {
+			$error['certificate_error'] = $this->upload->display_errors();
+		} else {
+			$data['certificate_upload_data'] = $this->upload->data();
+		}
 	}
+
+	if (!empty($_FILES['fontfile']['name'])) {
+		// Configuration for font file upload
+		$config_font['upload_path']   = 'assets/sertifikat/font/';
+		$config_font['allowed_types'] = 'ttf';
+		$config_font['file_name']     = 'TemplateFont';
+		$config_font['overwrite']     = true;
+		$this->load->library('upload', $config_font);
+
+		// Perform font file upload
+		if (!$this->upload->do_upload('fontfile')) {
+			$error['font_error'] = $this->upload->display_errors();
+		} else {
+			unlink('assets/sertifikat/font/TemplateFont.ttf');
+			$data['font_upload_data'] = $this->upload->data();
+		}
+	}
+
+		// Load views based on upload success or failure
+		$this->load->view('tampilan/header');
+		$this->load->view('tampilan/navbar');
+		if (isset($error)) {
+			$this->load->view('admin/certificate/viewcertificate', $error);
+		} else {
+			$this->load->view('admin/certificate/viewcertificate', $data);
+		}
+		$this->load->view('tampilan/footer');
+	}
+
 }
