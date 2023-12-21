@@ -82,7 +82,11 @@
             <div class="container mt-5">
                 <h2 class="mb-4">Detail Sertifikat Peserta</h2>
                 <div class="wrapper">
-                    <div class="card p-3" style="width: 420px; border-radius: 10px;">
+                    <div class="chart-container">
+                        <h5 class="chart-title">Chart Score per Section</h5>
+                        <div class="chart" id="chart"></div>
+                    </div>
+                    <div class="card border-white" style="width: 300px; border-radius: 10px;">
                         <div class="card-body">
                             <h5 class="card-title">Nama Mahasiswa</h5>
                             <h6 class="card-text mb-3 text-body-secondary" id="nama">Muhammad Gilang Ariyana</h6>
@@ -100,12 +104,9 @@
                             <h6 class="card-text mb-2 text-body-secondary" id="jumlah_Score">510</h6>
                         </div>
                     </div>
-                    <div class="chart-container">
-                        <h5 class="chart-title">Chart Score per Section</h5>
-                        <div class="chart" id="chart"></div>
-                    </div>
                 </div>
             </div>
+
             <div class="footer">
                 <p>Copyright &copy; <script>
                         document.write(new Date().getFullYear());
