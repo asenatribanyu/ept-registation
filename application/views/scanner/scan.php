@@ -32,49 +32,91 @@
 </head>
 
 <body>
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Nama </h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-            <h5 class="card-title">NPM</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-            <h5 class="card-title">Fakultas</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-            <h5 class="card-title">Prodi</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-            <h5 class="card-title">Score Test</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-            
-            
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-        </div>
-    </div>
-
-    <div class="container mt-5">
-        <h2 class="mb-4">Detail Data Diri Mahasiswa</h2>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Nama Mahasiswa</h5>
-                <p class="card-text" id="nama"><?php echo $nama; ?></p>
-                
-                <h5 class="card-title">NPM</h5>
-                <p class="card-text" id="npm"><?php echo $npm; ?></p>
-                
-                <h5 class="card-title">Fakultas</h5>
-                <p class="card-text" id="fakultas"><?php echo $fakultas; ?></p>
-                
-                <h5 class="card-title">Program Studi</h5>
-                <p class="card-text" id="prodi"><?php echo $prodi; ?></p>
-                
-                <h5 class="card-title">Jumlah Pengulangan Ujian</h5>
-                <p class="card-text" id="jumlah_pengulangan"><?php echo $jumlah_pengulangan; ?></p>
+    <!-- Sub Header -->
+    <div class="sub-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-sm-8">
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                    <div class="right-icons">
+                        <ul>
+                            <li><a href="https://www.youtube.com/channel/UCwFCeHJiQW_hwMyuabQYwmg"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="https://instagram.com/lembagabahasa.widyatama?igshid=YmMyMTA2M2Y="><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.tiktok.com/@lembagabahasa.widyatama?_t=8WPjrXHfC5q&_r=1"><i class="fab fa-tiktok"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="https://lembagabahasa.widyatama.ac.id/" class="logo">
+                            Lembaga Bahasa Widyatama
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="<?php echo base_url(); ?>booking" class="active">Home</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ***** Header Area End ***** -->
+    <section class="contact-us pt-5" id="contact">
+        <div class="header-text pt-5">
+            <div class="container mt-5">
+                <h2 class="mb-4">Detail Sertifikat Peserta</h2>
+                <div class="wrapper">
+                    <div class="card p-3" style="width: 420px; border-radius: 10px;">
+                        <div class="card-body">
+                            <h5 class="card-title">Nama Mahasiswa</h5>
+                            <h6 class="card-text mb-3 text-body-secondary" id="nama">Muhammad Gilang Ariyana</h6>
+                            
+                            <h5 class="card-title">NPM</h5>
+                            <h6 class="card-text mb-3 text-body-secondary" id="npm">0620101021</h6>
+                            
+                            <h5 class="card-title">Fakultas</h5>
+                            <h6 class="card-text mb-3 text-body-secondary" id="fakultas">Teknik</h6>
+                            
+                            <h5 class="card-title">Program Studi</h5>
+                            <h6 class="card-text mb-3 text-body-secondary" id="prodi">Informatika</h6>
+                            
+                            <h5 class="card-title">Score Test</h5>
+                            <h6 class="card-text mb-2 text-body-secondary" id="jumlah_Score">510</h6>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h5 class="chart-title">Chart Score per Section</h5>
+                        <div class="chart" id="chart"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <p>Copyright &copy; <script>
+                        document.write(new Date().getFullYear());
+                    </script> — Lembaga Bahasa. All Rights Reserved
+                    <br>
+                    <a href="#" target="_parent">Created by MBKM Team Widyatama 2022</a>
+                    <br>
+                </p>
+            </div>
+    </section>
+
 
     <!-- Scripts -->
     <!-- Bootstrap core JavaScript -->
@@ -92,9 +134,67 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/custom/js/booking.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script type="text/javascript" src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var options = {
+                series: [52, 46, 55],
+                chart: {
+                    width: 380,
+                    type: 'pie',
+                },
+                labels: ['Section 1', 'Section 2', 'Section 3'],
+                responsive: [{
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            width: 200
+                        },
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }]
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        }
+        
+    </script>
 
 </body>
 
 </html>
+
+<style>
+    .mb-4{
+        color: #ffff;
+    }
+
+    .wrapper{
+        display: flex;
+        justify-content: center;
+        background-color: white;
+        max-width: 800px;
+        margin: auto;
+        border-radius: 10px;
+    }
+
+    .chart-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer {
+        bottom: 0;
+        margin-top: 50px;
+    }
+
+</style>
 
 
