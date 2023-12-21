@@ -10,21 +10,20 @@ class Certificate extends CI_Controller
     }
 
     public function certificate($id){
-        $data = $this->db->get_where('tbl_score', array('id_score' => $id))->row();
-        $dataTanggal = DateTime::createFromFormat('d F Y', $data->tanggal);
-    $currentDate = new DateTime();
-
-    // Calculate the difference in years
-    $interval = $currentDate->diff($dataTanggal);
-    $yearsDifference = $interval->y;
-
-    // Check if it's more than 2 years
-    if ($yearsDifference >= 2) {
-        // Display "Sudah Expire" with the expired date
-        $expiredDate = $dataTanggal->format('d F Y');
-        echo "Sudah Expire pada tanggal $expiredDate";
-    } else {
-        echo "Belum expire";
-    }
+    $data['score'] = $this->db->query( "
+    SELECT * FROM tbl_score
+    LEFT JOIN tbl_peserta ON tbl_score.npm = tbl_peserta.npm
+    LEFT JOIN tbl_prodi ON tbl_peserta.id_prodi = tbl_prodi.id_prodi
+    LEFT JOIN tbl_fakultas ON tbl_peserta.id_fakultas = tbl_fakultas.id_fakultas
+    WHERE tbl_score.id_score = $id
+    LIMIT 1")->result();
+    $data['chart'] = $this->db->query( "
+    SELECT * FROM tbl_score
+    LEFT JOIN tbl_peserta ON tbl_score.npm = tbl_peserta.npm
+    LEFT JOIN tbl_prodi ON tbl_peserta.id_prodi = tbl_prodi.id_prodi
+    LEFT JOIN tbl_fakultas ON tbl_peserta.id_fakultas = tbl_fakultas.id_fakultas
+    WHERE tbl_score.id_score = $id
+    LIMIT 1")->result();
+    $this->load->view('scanner/scan',$data);
     }
 }

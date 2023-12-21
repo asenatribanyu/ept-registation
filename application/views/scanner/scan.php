@@ -87,22 +87,46 @@
                         <div class="chart" id="chart"></div>
                     </div>
                     <div class="card border-white" style="width: 300px; border-radius: 10px;">
+                    <?php foreach($score as $score):?>
+                        <?php $dataTanggal = DateTime::createFromFormat('d F Y', $score->tanggal);
+                            $currentDate = new DateTime();
+
+                            // Calculate the difference in years
+                            $interval = $currentDate->diff($dataTanggal);
+                            $yearsDifference = $interval->y;?>
                         <div class="card-body">
+                            <h5 class="card-title"><?php if ($yearsDifference >= 2){
+                                $expiredDate = $dataTanggal->format('d F Y');
+                                echo "Sertifikat sudah expired pada tanggal " . $expiredDate = $dataTanggal->format('d F Y');
+                            }?></h5>
+
                             <h5 class="card-title">Nama Mahasiswa</h5>
-                            <h6 class="card-text mb-3 text-body-secondary" id="nama">Muhammad Gilang Ariyana</h6>
+                            <h6 class="card-text mb-3 text-body-secondary" id="nama"><?php echo $score->nama?></h6>
                             
                             <h5 class="card-title">NPM</h5>
-                            <h6 class="card-text mb-3 text-body-secondary" id="npm">0620101021</h6>
+                            <h6 class="card-text mb-3 text-body-secondary" id="npm"><?php echo $score->npm?></h6>
                             
                             <h5 class="card-title">Fakultas</h5>
-                            <h6 class="card-text mb-3 text-body-secondary" id="fakultas">Teknik</h6>
+                            <h6 class="card-text mb-3 text-body-secondary" id="fakultas"><?php if($score->nama_fakultas){
+                                echo $score->nama_fakultas;
+                                }else{
+                                    echo "-";
+                                }?></h6>
                             
                             <h5 class="card-title">Program Studi</h5>
-                            <h6 class="card-text mb-3 text-body-secondary" id="prodi">Informatika</h6>
+                            <h6 class="card-text mb-3 text-body-secondary" id="prodi"><?php if($score->nama_prodi){
+                                echo $score->nama_prodi;
+                                }else{
+                                    echo "-";
+                                }?></h6>
                             
+                            <h5 class="card-title">Tanggal Ujian</h5>
+                            <h6 class="card-text mb-2 text-body-secondary" id="tanggal"><?php echo $score->tanggal?></h6>
+
                             <h5 class="card-title">Score Test</h5>
-                            <h6 class="card-text mb-2 text-body-secondary" id="jumlah_Score">510</h6>
+                            <h6 class="card-text mb-2 text-body-secondary" id="jumlah_Score"><?php echo $score->score?></h6>
                         </div>
+                        <?php endforeach;?>
                     </div>
                 </div>
             </div>
@@ -139,32 +163,38 @@
 
     <script type="text/javascript" src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
     <script type="text/javascript">
-        window.onload = function () {
-            var options = {
-                series: [52, 46, 55],
-                chart: {
-                    width: 380,
-                    type: 'pie',
-                },
-                labels: ['Section 1', 'Section 2', 'Section 3'],
-                responsive: [{
-                    breakpoint: 480,
-                    options: {
-                        chart: {
-                            width: 200
-                        },
-                        legend: {
-                            position: 'bottom'
-                        }
-                    }
-                }]
-            };
+    <?php foreach($chart as $chart):?>    
+    var sec1Total = <?php echo $chart->sec1?>;
+    var sec2Total = <?php echo $chart->sec2?>;
+    var sec3Total = <?php echo $chart->sec3?>;
+    <?php endforeach;?>
 
-            var chart = new ApexCharts(document.querySelector("#chart"), options);
-            chart.render();
-        }
-        
-    </script>
+    window.onload = function () {
+        var options = {
+            series: [sec1Total, sec2Total, sec3Total],
+            chart: {
+                width: 380,
+                type: 'pie',
+            },
+            labels: ['Section 1', 'Section 2', 'Section 3'],
+            responsive: [{
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: 200
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }]
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    }
+</script>
+
 
 </body>
 
