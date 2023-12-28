@@ -95,10 +95,21 @@
                             $interval = $currentDate->diff($dataTanggal);
                             $yearsDifference = $interval->y;?>
                         <div class="card-body">
-                            <h5 class="card-title"><?php if ($yearsDifference >= 2){
-                                $expiredDate = $dataTanggal->format('d F Y');
-                                echo "Sertifikat sudah expired pada tanggal " . $expiredDate = $dataTanggal->format('d F Y');
-                            }?></h5>
+                            <div class="modal" id="popup">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="alert alert-warning d-flex flex-column" role="alert">
+                                            <!-- <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg> -->
+                                            <h4 class="alert-heading">Expired Certificate!</h4>
+                                            <hr>
+                                            <h5 class="card-title"><?php if ($yearsDifference >= 2){
+                                            $expiredDate = $dataTanggal->add(new DateInterval('P2Y'))->format('d F Y');
+                                            echo "Sertifikat sudah expired pada tanggal " . $expiredDate;
+                                            }?></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <h5 class="card-title">Nama Mahasiswa</h5>
                             <h6 class="card-text mb-3 text-body-secondary" id="nama"><?php echo $score->nama?></h6>
@@ -106,19 +117,21 @@
                             <h5 class="card-title">NPM</h5>
                             <h6 class="card-text mb-3 text-body-secondary" id="npm"><?php echo $score->npm?></h6>
                             
+                            <?php foreach($nama as $nama):?>
                             <h5 class="card-title">Fakultas</h5>
-                            <h6 class="card-text mb-3 text-body-secondary" id="fakultas"><?php if($score->nama_fakultas){
-                                echo $score->nama_fakultas;
+                            <h6 class="card-text mb-3 text-body-secondary" id="fakultas"><?php if($nama->nama_fakultas){
+                                echo $nama->nama_fakultas;
                                 }else{
                                     echo "-";
                                 }?></h6>
                             
                             <h5 class="card-title">Program Studi</h5>
-                            <h6 class="card-text mb-3 text-body-secondary" id="prodi"><?php if($score->nama_prodi){
-                                echo $score->nama_prodi;
+                            <h6 class="card-text mb-3 text-body-secondary" id="prodi"><?php if($nama->nama_prodi){
+                                echo $nama->nama_prodi;
                                 }else{
                                     echo "-";
                                 }?></h6>
+                            <?php endforeach ?>
                             
                             <h5 class="card-title">Tanggal Ujian</h5>
                             <h6 class="card-text mb-2 text-body-secondary" id="tanggal"><?php echo $score->tanggal?></h6>
@@ -126,20 +139,20 @@
                             <h5 class="card-title">Score Test</h5>
                             <h6 class="card-text mb-2 text-body-secondary" id="jumlah_Score"><?php echo $score->score?></h6>
                         </div>
-                        <?php endforeach;?>
-                    </div>
+                    <?php endforeach;?>
                 </div>
             </div>
+        </div>
 
-            <div class="footer">
-                <p>Copyright &copy; <script>
-                        document.write(new Date().getFullYear());
-                    </script> — Lembaga Bahasa. All Rights Reserved
-                    <br>
-                    <a href="#" target="_parent">Created by MBKM Team Widyatama 2022</a>
-                    <br>
-                </p>
-            </div>
+        <div class="footer">
+            <p>Copyright &copy; <script>
+                    document.write(new Date().getFullYear());
+                </script> — Lembaga Bahasa. All Rights Reserved
+                <br>
+                <a href="#" target="_parent">Created by MBKM Team Widyatama 2022</a>
+                <br>
+            </p>
+        </div>
     </section>
 
 
@@ -176,22 +189,37 @@
                 width: 380,
                 type: 'pie',
             },
+            dataLabels: {
+                enabled: false
+            },
             labels: ['Section 1', 'Section 2', 'Section 3'],
             responsive: [{
                 breakpoint: 480,
                 options: {
                     chart: {
-                        width: 200
+                    width: 200
                     },
                     legend: {
-                        position: 'bottom'
+                    show: false
                     }
                 }
-            }]
+            }],
+            legend: {
+                position: 'right',
+                offsetY: 0,
+                height: 230,
+            }
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
+    }
+
+    var yearsDifference = <?php echo $yearsDifference?>;
+    if (yearsDifference >= 2) {
+        $(document).ready(function () {
+            $('#popup').modal('show');
+        });
     }
 </script>
 
@@ -212,6 +240,10 @@
         max-width: 800px;
         margin: auto;
         border-radius: 10px;
+    }
+    
+    .alert-warning {
+        margin: 0;
     }
 
     .chart-container{
