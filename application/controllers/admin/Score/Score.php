@@ -61,6 +61,7 @@ class Score extends CI_Controller
     }
 
     public function filter($id){
+        $this->input->post('tanggal_awal');
         if($id <= 6 ){
             $filter = 'fakultas';
             $data['tbl_score'] = $this->Score_model->filter($filter, $id)->result();
@@ -68,7 +69,7 @@ class Score extends CI_Controller
             $filter = 'prodi';
             $data['tbl_score'] = $this->Score_model->filter($filter, $id)->result(); 
         }
-        
+        $data['id']=$id;
         $this->load->view('tampilan/header');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/score/filter/tabelscore', $data);

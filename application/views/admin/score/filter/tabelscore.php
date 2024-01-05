@@ -15,23 +15,22 @@
 	<div class="con-chart mx-2 mx-md-3 mt-1">
 		<div class="date d-flex">
 			<div class="datestart px-1">
-				<form id="tanggalForm" action="<?php echo base_url('admin/tanggal/tanggal/simpandata'); ?>" method="post">
+				<form id="tanggalForm" action="<?php echo base_url(); ?>admin/score/score/filter/<?php echo $id ?>" method="post">
 					<h5>Tanggal Awal</h5>
 					<div class="input-group input-group-outline mb-3">
-						<input type="date" name="tanggal_event" class="form-control rounded-2 border border-primary">
-						<br><?php echo form_error('tanggal_event', '<div class="text-danger small" ml-3>', '</div>') ?>
+						<input type="date" name="tanggal_awal" class="form-control rounded-2 border border-primary">
 					</div>
-				</form>
 			</div>
 			<div class="dateend px-1">
-				<form id="tanggalForm" action="<?php echo base_url('admin/tanggal/tanggal/simpandata'); ?>" method="post">
 					<h5>Tanggal Akhir</h5>
 					<div class="input-group input-group-outline mb-3">
-						<input type="date" name="tanggal_event" class="form-control rounded-2 border border-primary">
-						<br><?php echo form_error('tanggal_event', '<div class="text-danger small" ml-3>', '</div>') ?>
+						<input type="date" name="tanggal_akhir" class="form-control rounded-2 border border-primary">
 					</div>
+					<button type="submit" class="btn btn-info">Save changes</button>
 				</form>
+				
 			</div>
+			
 		</div>
 		
 		<div class="chart" id="chartContainer" style="height: 300px; border-radius: 10px;"></div>
@@ -86,6 +85,17 @@
 </script>
 
 <script type="text/javascript">
+	<?php
+		$dataPoints = array();
+		$no = 1;
+		foreach ($tbl_score as $s) {
+
+			$x = $s->nama;
+			$y = $s->score;
+			$dataPoints[] = array("label" =>$x, "y" => $y  );
+		}
+	?>
+	var DataPoints = <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>;
 	window.onload = function () {
 		var chart = new CanvasJS.Chart("chartContainer",
 		{
@@ -95,19 +105,7 @@
 			data: [
 		{
 			type: "area",
-			dataPoints: [//array
-
-			{ x: new Date(2020, 00, 1), y: 2600 },
-			{ x: new Date(2020, 01, 1), y: 3800 },
-			{ x: new Date(2020, 02, 1), y: 4300 },
-			{ x: new Date(2020, 03, 1), y: 2900 },
-			{ x: new Date(2020, 04, 1), y: 4100 },
-			{ x: new Date(2020, 05, 1), y: 4500 },
-			{ x: new Date(2020, 06, 1), y: 8600 },
-			{ x: new Date(2020, 07, 1), y: 6400 },
-			{ x: new Date(2020, 08, 1), y: 5300 },
-			{ x: new Date(2020, 09, 1), y: 6000 }
-			]
+			dataPoints: DataPoints
 		}
 		]
 		});
