@@ -61,15 +61,21 @@ class Score extends CI_Controller
     }
 
     public function filter($id){
-        $this->input->post('tanggal_awal');
-        if($id <= 6 ){
-            $filter = 'fakultas';
-            $data['tbl_score'] = $this->Score_model->filter($filter, $id)->result();
+        if($this->input->post('tanggal_awal') && $this->input->post('tanggal_akhir')){
+            $tanggalAwal = $this->input->post('tanggal_awal');
+            $tanggalAkhir = $this->input->post('tanggal_akhir');
         }else{
-            $filter = 'prodi';
-            $data['tbl_score'] = $this->Score_model->filter($filter, $id)->result(); 
+            $tanggalAwal = NULL;
+            $tanggalAkhir = NULL;
         }
-        $data['id']=$id;
+        
+    
+        $filter = ($id <= 6) ? 'fakultas' : 'prodi';
+    
+        $data['tbl_score'] = $this->Score_model->filter($filter, $id, $tanggalAwal, $tanggalAkhir)->result();
+    
+        $data['filter'] = $filter;
+        $data['id'] = $id;
         $this->load->view('tampilan/header');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/score/filter/tabelscore', $data);
