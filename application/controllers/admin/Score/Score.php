@@ -61,12 +61,23 @@ class Score extends CI_Controller
     }
 
     public function filter($id){
-        if($this->input->post('tanggal_awal') && $this->input->post('tanggal_akhir')){
+        if($this->input->post('tanggal_awal') && $this->input->post('tanggal_akhir') && $this->input->post('skor_awal') && $this->input->post('skor_akhir')){
             $tanggalAwal = $this->input->post('tanggal_awal');
             $tanggalAkhir = $this->input->post('tanggal_akhir');
             $skorAwal = $this->input->post('skor_awal');
             $skorAkhir = $this->input->post('skor_akhir');
-        }else{
+        }elseif($this->input->post('tanggal_awal') && $this->input->post('tanggal_akhir')){
+            $tanggalAwal = $this->input->post('tanggal_awal');
+            $tanggalAkhir = $this->input->post('tanggal_akhir');
+            $skorAwal = NULL;
+            $skorAkhir = NULL;
+        }elseif($this->input->post('skor_awal') && $this->input->post('skor_akhir')){
+            $skorAwal = $this->input->post('skor_awal');
+            $skorAkhir = $this->input->post('skor_akhir');
+            $tanggalAwal = NULL;
+            $tanggalAkhir = NULL;
+        }
+        else{
             $tanggalAwal = NULL;
             $tanggalAkhir = NULL;
             $skorAwal = NULL;
