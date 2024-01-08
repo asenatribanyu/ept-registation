@@ -13,24 +13,36 @@
 
 <div class="card card-body blur shadow-blur mx-2 mx-md-3 mt-n6"> 
 	<div class="con-chart mx-2 mx-md-3 mt-1">
-		<div class="date d-flex">
-			<div class="datestart px-1">
-				<form id="tanggalForm" action="<?php echo base_url(); ?>admin/score/score/filter/<?php echo $id ?>" method="post">
-					<h5>Tanggal Awal</h5>
+		<div class="chartfilter d-flex">
+			<form id="tanggalForm" class="datefilter d-flex align-items-end" action="<?php echo base_url(); ?>admin/score/score/filter/<?php echo $id ?>" method="post">
+				<div class="datestart px-1">
+						<h5>Tanggal Awal</h5>
+						<div class="input-group input-group-outline mb-3">
+							<input type="date" name="tanggal_awal" class="form-control rounded-2 border-success-emphasis">
+						</div>
+				</div>
+				<div class="dateend px-1">
+						<h5>Tanggal Akhir</h5>
+						<div class="input-group input-group-outline mb-3">
+							<input type="date" name="tanggal_akhir" class="form-control rounded-2 border-success-emphasis">
+						</div>
+				</div>
+
+				<div class="scoremin px-1">
+					<h5>Score Awal</h5>
 					<div class="input-group input-group-outline mb-3">
-						<input type="date" name="tanggal_awal" class="form-control rounded-2 border border-primary">
+						<input type="number" class="form-control border-success-emphasis" id="" placeholder="Masukkan score awal">
 					</div>
-			</div>
-			<div class="dateend px-1">
-					<h5>Tanggal Akhir</h5>
+				</div>
+				<div class="scoremax px-1">
+					<h5>Score Akhir</h5>
 					<div class="input-group input-group-outline mb-3">
-						<input type="date" name="tanggal_akhir" class="form-control rounded-2 border border-primary">
+						<input type="number" class="form-control border-success-emphasis" id="" placeholder="Masukkan score akhir">
 					</div>
-					<button type="submit" class="btn btn-info">Save changes</button>
-				</form>
-				
-			</div>
-			
+				</div>
+
+				<button type="submit" class="btn mx-1 btn-info">Save changes</button>
+			</form>
 		</div>
 		
 		<div class="chart" id="chartContainer" style="height: 300px; border-radius: 10px;"></div>
