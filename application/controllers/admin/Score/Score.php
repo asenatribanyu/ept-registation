@@ -64,15 +64,19 @@ class Score extends CI_Controller
         if($this->input->post('tanggal_awal') && $this->input->post('tanggal_akhir')){
             $tanggalAwal = $this->input->post('tanggal_awal');
             $tanggalAkhir = $this->input->post('tanggal_akhir');
+            $skorAwal = $this->input->post('skor_awal');
+            $skorAkhir = $this->input->post('skor_akhir');
         }else{
             $tanggalAwal = NULL;
             $tanggalAkhir = NULL;
+            $skorAwal = NULL;
+            $skorAkhir = NULL;
         }
         
     
         $filter = ($id <= 6) ? 'fakultas' : 'prodi';
     
-        $data['tbl_score'] = $this->Score_model->filter($filter, $id, $tanggalAwal, $tanggalAkhir)->result();
+        $data['tbl_score'] = $this->Score_model->filter($filter, $id, $tanggalAwal, $tanggalAkhir, $skorAwal, $skorAkhir)->result();
     
         $data['filter'] = $filter;
         $data['id'] = $id;

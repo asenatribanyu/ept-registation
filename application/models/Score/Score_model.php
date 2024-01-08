@@ -12,7 +12,7 @@ class Score_model extends CI_Model
             ");
     }
 
-    public function filter($filter, $id, $tanggalAwal = null, $tanggalAkhir = null) {
+    public function filter($filter, $id, $tanggalAwal = null, $tanggalAkhir = null, $skorAwal = null, $skorAkhir = null) {
 		$idOffset = ($filter == 'fakultas') ? 1 : 6;
 	
 		$query = "
@@ -25,6 +25,9 @@ class Score_model extends CI_Model
 	
 		if ($tanggalAwal !== null && $tanggalAkhir !== null) {
 			$query .= " AND STR_TO_DATE(tbl_score.tanggal, '%d %M %Y') BETWEEN '$tanggalAwal' AND '$tanggalAkhir'";
+		}
+		if ($skorAwal !== null && $skorAkhir !== null) {
+			$query .= " AND tbl_score.score BETWEEN '$skorAwal' AND '$skorAkhir'";
 		}
 	
 		$query .= " ORDER BY id_peserta";

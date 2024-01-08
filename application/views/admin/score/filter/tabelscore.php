@@ -31,13 +31,13 @@
 				<div class="scoremin px-1">
 					<h5>Score Awal</h5>
 					<div class="input-group input-group-outline mb-3">
-						<input type="number" class="form-control border-success-emphasis" id="" placeholder="Masukkan score awal">
+						<input name="skor_awal" type="number" class="form-control border-success-emphasis" id="" placeholder="Masukkan score awal">
 					</div>
 				</div>
 				<div class="scoremax px-1">
 					<h5>Score Akhir</h5>
 					<div class="input-group input-group-outline mb-3">
-						<input type="number" class="form-control border-success-emphasis" id="" placeholder="Masukkan score akhir">
+						<input name="skor_akhir" type="number" class="form-control border-success-emphasis" id="" placeholder="Masukkan score akhir">
 					</div>
 				</div>
 
