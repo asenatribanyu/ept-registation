@@ -61,7 +61,7 @@ window.onload = function () {
             text: "Peningkatan Ujian"    
         },
         axisY: {
-            title: "Rata - rata Score"
+            title: "Score"
         },
         legend: {
             verticalAlign: "bottom",
