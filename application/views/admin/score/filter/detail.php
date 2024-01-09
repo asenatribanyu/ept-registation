@@ -30,12 +30,14 @@
         </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="don col-md-6">
         <h2>Hasil Setiap Ujian</h2>
-        <?php $no = 1;
-            for($i = 1; $i <= $pengulangan;$i++) :?>
-        <div id="donutchart<?php echo $no++ ?>" style="height: 300px; width: 100%;"></div>
-        <?php endfor; ?>
+        <div class="con d-flex">
+            <?php $no = 1;
+                for($i = 1; $i <= $pengulangan;$i++) :?>
+            <div id="donutchart<?php echo $no++ ?>" style="height: 300px; width: 100%;"></div>
+            <?php endfor; ?>
+        </div>
     </div>
 </div>
 
@@ -129,6 +131,10 @@ window.onload = function () {
 
     #donutchart {
         height: 300px; 
+        width: 100%;
+    }
+
+    .don {
         width: 100%;
     }
 </style>
