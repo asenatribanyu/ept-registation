@@ -8,8 +8,10 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title></title>
-    <link rel="icon" sizes="76x76" href="https://ept-lembagabahasa.widyatama.ac.id/registration/assets/img/logo_widyatama.ico">
-    <link rel="icon" type="image/png" href="https://ept-lembagabahasa.widyatama.ac.id/registration/assets/img/logo_widyatama.ico">
+    <link rel="icon" sizes="76x76"
+        href="https://ept-lembagabahasa.widyatama.ac.id/registration/assets/img/logo_widyatama.ico">
+    <link rel="icon" type="image/png"
+        href="https://ept-lembagabahasa.widyatama.ac.id/registration/assets/img/logo_widyatama.ico">
     <!-- Bootstrap -->
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/custom/css/custom.css" rel="stylesheet">
@@ -32,7 +34,7 @@
 
     <!-- GetButton.io widget -->
     <script type="text/javascript">
-        (function() {
+        (function () {
             var options = {
                 whatsapp: "+(62)821-1841-2164", // WhatsApp number
                 call_to_action: "Any Help?", // Call to action
@@ -46,7 +48,7 @@
             s.type = 'text/javascript';
             s.async = true;
             s.src = url + '/widget-send-button/js/init.js';
-            s.onload = function() {
+            s.onload = function () {
                 WhWidgetSendButton.init(host, proto, options);
             };
             var x = document.getElementsByTagName('script')[0];
@@ -61,21 +63,20 @@
 <body>
     <!-- Sub Header -->
     <div class="sub-header">
-
         <div class="container">
-
             <div class="row">
-
                 <div class="col-lg-8 col-sm-8">
                 </div>
-
                 <div class="col-lg-4 col-sm-4">
                     <div class="right-icons">
                         <ul>
                             <h8 style="color: white; text-align: left;"></h8>
-                            <li><a href="https://www.youtube.com/channel/UCwFCeHJiQW_hwMyuabQYwmg"><i class="fab fa-youtube"></i></a></li>
-                            <li><a href="https://instagram.com/lembagabahasa.widyatama?igshid=YmMyMTA2M2Y="><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="https://www.tiktok.com/@lembagabahasa.widyatama?_t=8WPjrXHfC5q&_r=1"><i class="fab fa-tiktok"></i></a></li>
+                            <li><a href="https://www.youtube.com/channel/UCwFCeHJiQW_hwMyuabQYwmg"><i
+                                        class="fab fa-youtube"></i></a></li>
+                            <li><a href="https://instagram.com/lembagabahasa.widyatama?igshid=YmMyMTA2M2Y="><i
+                                        class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.tiktok.com/@lembagabahasa.widyatama?_t=8WPjrXHfC5q&_r=1"><i
+                                        class="fab fa-tiktok"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -127,7 +128,11 @@
                             <h6>Welcome to</h6>
                             <h2>Language Institute Digital Service Center</h2>
                             <h2>Widyatama University</h2>
-                            <p>This is a website provided by <a rel="nofollow" href="https://lembagabahasa.widyatama.ac.id/" target="_blank">Lembaga Bahasa Widyatama</a>. This website provides information and services in Lembaga Bahasa. This website is useful to help students get information related to the services contained in the widyatama language institute</a>.</p>
+                            <p>This is a website provided by <a rel="nofollow"
+                                    href="https://lembagabahasa.widyatama.ac.id/" target="_blank">Lembaga Bahasa
+                                    Widyatama</a>. This website provides information and services in Lembaga Bahasa.
+                                This website is useful to help students get information related to the services
+                                contained in the widyatama language institute</a>.</p>
                             <div class="main-button-red">
                                 <div><a href="<?php echo base_url(); ?>booking/info">EPT Registration</a>
                                     <a href="<?php echo base_url(); ?>JLPT/infojp">JLPT Registration</a>
@@ -143,7 +148,7 @@
     </section>
     <!-- ***** Main Banner Area End ***** -->
 
-    <section class="services">
+    <section class="services page-visi" id="visi">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -154,7 +159,10 @@
                             </div>
                             <div class="down-content">
                                 <h4>Company Profile</h4>
-                                <p>Lembaga Bahasa didirikan pada tahun 2010 yang dalam perjalanannya mengalami beberapa kali perubahan nomenklatur sesuai dengan cakupan layanan yang diberikan. Lembaga Bahasa Widyatama berlokasi Gedung Pustakaloka Lantai 3, Universitas Widyatama di Jalan Cikutra No.204A Bandung.</p>
+                                <p>Lembaga Bahasa didirikan pada tahun 2010 yang dalam perjalanannya mengalami beberapa
+                                    kali perubahan nomenklatur sesuai dengan cakupan layanan yang diberikan. Lembaga
+                                    Bahasa Widyatama berlokasi Gedung Pustakaloka Lantai 3, Universitas Widyatama di
+                                    Jalan Cikutra No.204A Bandung.</p>
                             </div>
                         </div>
                         <div class="item">
@@ -163,8 +171,10 @@
                             </div>
                             <div class="down-content">
                                 <h4>Misi </h4>
-                                <p>- Meningkatkan kemampuan berbahasa mahasiswa, dosen, dan karyawan dengan menyediakan layanan pelatihan bahasa yang bersifat terstruktur, terukur, dan termutakhir</p>
-                                <p>- Menyediakan alat ukur kompetensi bahasa yang sesuai dengan tuntutan pemerintah maupun pasar kerja baik untuk internal maupun eksternal</p>
+                                <p>- Meningkatkan kemampuan berbahasa mahasiswa, dosen, dan karyawan dengan menyediakan
+                                    layanan pelatihan bahasa yang bersifat terstruktur, terukur, dan termutakhir</p>
+                                <p>- Menyediakan alat ukur kompetensi bahasa yang sesuai dengan tuntutan pemerintah
+                                    maupun pasar kerja baik untuk internal maupun eksternal</p>
                             </div>
                         </div>
                         <div class="item">
@@ -173,8 +183,10 @@
                             </div>
                             <div class="down-content">
                                 <h4>Visi</h4>
-                                <p>- Menjadikan Lembaga Bahasa dan Budaya Universitas Widyatama sebagai pusat layanan bahasa di bidang pelatihan, pengetesan, penerjemahan, BIPA dan Budaya</p>
-                                <p>- Menjadi pendukung keberhasilan sasaran mutu Widyatama dalam bidang peningkatan kemampuan berbahasa</p>
+                                <p>- Menjadikan Lembaga Bahasa dan Budaya Universitas Widyatama sebagai pusat layanan
+                                    bahasa di bidang pelatihan, pengetesan, penerjemahan, BIPA dan Budaya</p>
+                                <p>- Menjadi pendukung keberhasilan sasaran mutu Widyatama dalam bidang peningkatan
+                                    kemampuan berbahasa</p>
                             </div>
                         </div>
                     </div>
@@ -195,9 +207,11 @@
                     <div class="categories">
                         <h4 style="text-align:center ;">Layanan Lembaga Bahasa Widyatama</h4>
                         <ul>
-                            <li><a href="https://translate.widyatama.ac.id/login">- Penerjemahan Abstrak Tugas Akhir</a></li>
+                            <li><a href="https://translate.widyatama.ac.id/login">- Penerjemahan Abstrak Tugas Akhir</a>
+                            </li>
                             <li><a href="booking">- Penerjemahan Tulisan Ilmiah</a></li>
-                            <li><a href="booking">- Penerjemahan dan Verifikasi Surat Keterangan Pendamping Ijazah (SKPI)</a></li>
+                            <li><a href="booking">- Penerjemahan dan Verifikasi Surat Keterangan Pendamping Ijazah
+                                    (SKPI)</a></li>
                             <li><a href="<?php echo base_url(); ?>booking">- English Proficiency Test (EPT)</a></li>
                             <li><a href="booking">- EPT for Business (*TOEIC)</a></li>
                             <li><a href="booking">- EPT Preparation Course (Lvl 1,2,3)</a></li>
@@ -210,7 +224,8 @@
                         <div class="col-lg-6">
                             <div class="meeting-item">
                                 <div class="thumb">
-                                    <img src="<?php echo base_url(); ?>assets/images/english.jpg" height="100%" alt="New Lecturer Meeting">
+                                    <img src="<?php echo base_url(); ?>assets/images/english.jpg" height="100%"
+                                        alt="New Lecturer Meeting">
                                 </div>
                                 <div class="down-content">
                                     <div class="date">
@@ -226,7 +241,8 @@
                         <div class="col-lg-6">
                             <div class="meeting-item">
                                 <div class="thumb">
-                                    <img src="<?php echo base_url(); ?>assets/images/japan.png" height="280px" alt="Student Training">
+                                    <img src="<?php echo base_url(); ?>assets/images/japan.png" height="280px"
+                                        alt="Student Training">
                                 </div>
                                 <div class="down-content">
                                     <div class="date">
@@ -279,7 +295,11 @@
                             </div>
                             <div class="accordion-body">
                                 <div class="content">
-                                    <p style="font-size:13px; word-break:break-word;">English Proficiency Test (EPT) diselenggarakan secara luring (luar daring) di Universitas Widyatama. Pendaftaran EPT dapat dilakukan dengan klik link <a href="https://ept-lembagabahasa.widyatama.ac.id/registration/" style="font-size: 13px;">https://ept-lembagabahasa.widyatama.ac.id/registration/</a></p>
+                                    <p style="font-size:13px; word-break:break-word;">English Proficiency Test (EPT)
+                                        diselenggarakan secara luring (luar daring) di Universitas Widyatama.
+                                        Pendaftaran EPT dapat dilakukan dengan klik link <a href="#"
+                                            style="font-size: 13px;">https://ept-lembagabahasa.widyatama.ac.id/registration/</a>
+                                    </p>
                                 </div>
                             </div>
                         </article>
@@ -294,6 +314,8 @@
                                 <div class="content">
                                     <p>- Senin, Pukul 10.00-12.00</p>
                                     <br>
+                                    <p>- Rabu, Pukul 10.00-12.00</p>
+                                    <br>
                                     <p>- Sabtu, Pukul 09.00-11.00</p>
                                 </div>
                             </div>
@@ -307,13 +329,17 @@
                             </div>
                             <div class="accordion-body">
                                 <div class="content">
-                                    <p>Seluruh peserta ujian <b>WAJIB</b> mematuhi seluruh protokol kesehatan Covid-19, dan <b>WAJIB</b> menggunakan masker selama mengikuti ujian, bagi peserta ujian yang tidak menggunakan masker sebelum masuk ke dalam ruangan dan di dalam ruangan <b>TIDAK DIPERBOLEHKAN</b> mengikuti ujian.</p>
+                                    <p>Seluruh peserta ujian <b>WAJIB</b> mematuhi seluruh protokol kesehatan Covid-19,
+                                        dan <b>WAJIB</b> menggunakan masker selama mengikuti ujian, bagi peserta ujian
+                                        yang tidak menggunakan masker sebelum masuk ke dalam ruangan dan di dalam
+                                        ruangan <b>TIDAK DIPERBOLEHKAN</b> mengikuti ujian.</p>
                                     <br>
                                     <p>Seluruh peserta <b>WAJIB</b> membawa alat tulis (Pensil dan Karet Penghapus)</p>
                                     <br>
                                     <p>Seluruh peserta <b>WAJIB</b> menyerahkan bukti pembayaran dari PUPd</p>
                                     <br>
-                                    <p>Pengambilan sertifikat bisa dilakukan di Lembaga Bahasa, Gedung K, Lantai 3 dua hari kerja setelah pelaksanaan ujian.</p>
+                                    <p>Pengambilan sertifikat bisa dilakukan di Lembaga Bahasa, Gedung K, Lantai 3 dua
+                                        hari kerja setelah pelaksanaan ujian.</p>
                                 </div>
                             </div>
                         </article>
@@ -335,11 +361,10 @@
                 <div class="col-lg-12">
                     <div class="owl-courses-item owl-carousel">
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/images/conversation.png" alt="Course One" width="10px" height="210px">
+                            <img src="<?php echo base_url(); ?>assets/images/conversation.png" alt="Course One"
+                                width="10px" height="210px">
                             <div class="down-content">
-                                <a href="404page.html">
-                                    <h4>English Convertion Class</h4>
-                                </a>
+                                <h4>English Convertion Class</h4>
                                 <div class="info">
                                     <div class="row">
                                         <div class="col-8">
@@ -356,7 +381,8 @@
                             </div>
                         </div>
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/images/english_business.jpg" alt="Course Two" height="200px">
+                            <img src="<?php echo base_url(); ?>assets/images/english_business.jpg" alt="Course Two"
+                                height="200px">
                             <div class="down-content">
                                 <h4>English for Business Class</h4>
                                 <div class="info">
@@ -375,7 +401,8 @@
                             </div>
                         </div>
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/images/general-english.jpg" alt="Course Three" height="200px">
+                            <img src="<?php echo base_url(); ?>assets/images/general-english.jpg" alt="Course Three"
+                                height="200px">
                             <div class="down-content">
                                 <h4>General English</h4>
                                 <div class="info">
@@ -394,7 +421,8 @@
                             </div>
                         </div>
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/images/course-04.jpg" alt="Course Four" height="200px">
+                            <img src="<?php echo base_url(); ?>assets/images/course-04.jpg" alt="Course Four"
+                                height="200px">
                             <div class="down-content">
                                 <h4>Academic Writing Class</h4>
                                 <div class="info">
@@ -413,7 +441,8 @@
                             </div>
                         </div>
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/images/academic-presentation1.png" alt="Course Five" height="210px">
+                            <img src="<?php echo base_url(); ?>assets/images/academic-presentation1.png"
+                                alt="Course Five" height="210px">
                             <div class="down-content">
                                 <h4>Academic Presentation</h4>
                                 <div class="info">
@@ -432,7 +461,8 @@
                             </div>
                         </div>
                         <div class="item">
-                            <img src="<?php echo base_url(); ?>assets/images/course-02.jpg" alt="Course Six" height="210px">
+                            <img src="<?php echo base_url(); ?>assets/images/course-02.jpg" alt="Course Six"
+                                height="210px">
                             <div class="down-content">
                                 <h4>EPT Preparation</h4>
                                 <div class="info">
@@ -572,11 +602,13 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="count-area-content">
-                                        <div class="count-digit"><?php $this->db->select('id_event');
-                                                                    $this->db->from('tbl_event_jp');
-                                                                    $this->db->where('aktif', 'Aktif');
-                                                                    echo $this->db->count_all_results();
-                                                                    ?></div>
+                                        <div class="count-digit">
+                                            <?php $this->db->select('id_event');
+                                            $this->db->from('tbl_event_jp');
+                                            $this->db->where('aktif', 'Aktif');
+                                            echo $this->db->count_all_results();
+                                            ?>
+                                        </div>
                                         <div class="count-title">JLPT Available Schedules</div>
                                     </div>
                                 </div>
@@ -586,21 +618,25 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="count-area-content new-students">
-                                        <div class="count-digit"><?php $this->db->select('id_event');
-                                                                    $this->db->from('tbl_event_toeic');
-                                                                    $this->db->where('aktif', 'Aktif');
-                                                                    echo $this->db->count_all_results();
-                                                                    ?></div>
+                                        <div class="count-digit">
+                                            <?php $this->db->select('id_event');
+                                            $this->db->from('tbl_event_toeic');
+                                            $this->db->where('aktif', 'Aktif');
+                                            echo $this->db->count_all_results();
+                                            ?>
+                                        </div>
                                         <div class="count-title">TOEIC Available Schedules</div>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="count-area-content">
-                                        <div class="count-digit"><?php $this->db->select('id_event');
-                                                                    $this->db->from('tbl_event_alumni');
-                                                                    $this->db->where('aktif', 'Aktif');
-                                                                    echo $this->db->count_all_results();
-                                                                    ?></div>
+                                        <div class="count-digit">
+                                            <?php $this->db->select('id_event');
+                                            $this->db->from('tbl_event_alumni');
+                                            $this->db->where('aktif', 'Aktif');
+                                            echo $this->db->count_all_results();
+                                            ?>
+                                        </div>
                                         <div class="count-title">Special Available Schedules</div>
                                     </div>
                                 </div>
@@ -610,7 +646,8 @@
                 </div>
                 <div class="col-lg-6 align-self-center">
                     <div class="video">
-                        <a href="https://www.youtube.com/watch?v=8uu8kEONDXI" target="_blank"><img src="<?php echo base_url(); ?>assets/images/play-icon.png" alt=""></a>
+                        <a href="https://www.youtube.com/watch?v=8uu8kEONDXI" target="_blank"><img
+                                src="<?php echo base_url(); ?>assets/images/play-icon.png" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -633,12 +670,15 @@
                         <ul>
                             <li>
                                 <h6>Phone Number</h6>
-                                <span>+62 22-7275855<br><a href="https://wa.me/6282118412164">+62 821-1841-2164</a> (Whatsapp only!)</span>
+                                <span>+62 22-7275855<br><a href="https://wa.me/6282118412164">+62 821-1841-2164</a>
+                                    (Whatsapp only!)</span>
                             </li>
                             <br>
                             <li>
                                 <h6>Email Address</h6>
-                                <p style="font-size:13px; word-break:break-word;"><span style="font-size: 100%"><a href="mailto:lembaga.bahasa@widyatama.ac.id">lembaga.bahasa@widyatama.ac.id</a></span></p>
+                                <p style="font-size:13px; word-break:break-word;"><span style="font-size: 100%"><a
+                                            href="mailto:lembaga.bahasa@widyatama.ac.id">lembaga.bahasa@widyatama.ac.id</a></span>
+                                </p>
                             </li>
                             <br>
                             <li>
@@ -648,7 +688,9 @@
                             <br>
                             <li>
                                 <h6>Website URL</h6>
-                                <p style="font-size:13px; word-break:break-word;"><span style="font-size: 100%"><a href="https://lembagabahasa.widyatama.ac.id/">https://lembagabahasa.widyatama.ac.id/</a></span></p>
+                                <p style="font-size:13px; word-break:break-word;"><span style="font-size: 100%"><a
+                                            href="https://lembagabahasa.widyatama.ac.id/">https://lembagabahasa.widyatama.ac.id/</a></span>
+                                </p>
                             </li>
                         </ul>
                     </div>
@@ -657,7 +699,7 @@
                     <div class="fcf-body">
                         <div id="fcf-form">
                             <h3 class="fcf-h3">Contact Us!</h3>
-                            <form id="fcf-form-id" class="fcf-form-class" method="post" action="">
+                            <form id="fcf-form-id" class="fcf-form-class" method="post">
                                 <div class="fcf-form-group">
                                     <label for="Name" class="fcf-label">Your name</label>
                                     <div class="fcf-input-group">
@@ -673,11 +715,16 @@
                                 <div class="fcf-form-group">
                                     <label for="Message" class="fcf-label">Your message</label>
                                     <div class="fcf-input-group">
-                                        <textarea id="Message" name="Message" class="fcf-form-control" rows="4" maxlength="3000" required></textarea>
+                                        <textarea id="Message" name="Message" class="fcf-form-control" rows="4"
+                                            maxlength="3000" required></textarea>
                                     </div>
                                 </div>
                                 <div class="fcf-form-group">
-                                    <button type="button" onclick="sendEmail();" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send mail</button>
+                                    <!-- Placeholder for alert -->
+                                    <div id="alertMessage" style="color: red;"></div>
+                                    <div id="successMessage" style="color: green;"></div>
+                                    <button type="button" onclick="sendEmail();" id="fcf-button"
+                                        class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send mail</button>
                                 </div>
                             </form>
                         </div>
@@ -694,7 +741,10 @@
         <br>
         <div class="google-maps">
             <div class="gbox">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9382284770604!2d107.64321261450871!3d-6.8979917694205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e797d4ff9d55%3A0x7255df8d69db4d3a!2sUniversitas%20Widyatama!5e0!3m2!1sid!2sid!4v1666589876936!5m2!1sid!2sid" width="900px" height="250px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9382284770604!2d107.64321261450871!3d-6.8979917694205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e797d4ff9d55%3A0x7255df8d69db4d3a!2sUniversitas%20Widyatama!5e0!3m2!1sid!2sid!4v1666589876936!5m2!1sid!2sid"
+                    width="900px" height="250px" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <style>
                     .gbox {
                         width: 1100px;
@@ -735,7 +785,8 @@
         </div>
         <div class="footer">
             <p class="text-light my-4 text-sm font-weight-normal">
-                All rights reserved. Copyright © <script>
+                All rights reserved. Copyright ©
+                <script>
                     document.write(new Date().getFullYear())
                 </script> Created by <a href="">MBKM Team Widyatama</a>.
             </p>
@@ -761,7 +812,7 @@
     <script src="<?php echo base_url(); ?>assets/custom/js/booking.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript">
-        var doSth = function() {
+        var doSth = function () {
 
             var $md = $("#view_page");
             // Do something here
@@ -773,13 +824,44 @@
             var name = document.getElementById('Name').value;
             var email = document.getElementById('Email').value;
             var message = document.getElementById('Message').value;
-            var subject = 'Lembaga Bahasa Information and Services';
 
+            var unfilledFields = [];
+
+            // Check if the name field is empty
+            if (name.trim() === '') {
+                unfilledFields.push('Name');
+            }
+
+            // Check if the email field is empty
+            if (email.trim() === '') {
+                unfilledFields.push('Email');
+            }
+
+            // Check if the message textarea is empty
+            if (message.trim() === '') {
+                unfilledFields.push('Message');
+            }
+
+            // Display alert if any fields are unfilled
+            if (unfilledFields.length > 0) {
+                var alertMessage = 'Please fill in the following fields: ' + unfilledFields.join(', ');
+                document.getElementById('alertMessage').innerText = alertMessage;
+                return;
+            }
+
+            // Display success alert
+            document.getElementById('successMessage').innerText = 'Success!';
+
+            // Proceed with sending the email
+            var subject = 'Lembaga Bahasa Information and Services';
             var mailtoLink = 'mailto:lembaga.bahasa@widyatama.ac.id' +
                 '?subject=' + encodeURIComponent(subject) +
                 '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nMessage: ' + message);
 
-            window.location.href = mailtoLink;
+            // Simulate a delay before actually sending the email
+            setTimeout(function () {
+                window.location.href = mailtoLink;
+            }, 1000); // 1000 milliseconds (1 second) delay for demonstration purposes
         }
     </script>
     <script>
@@ -794,8 +876,8 @@
 
             if (isAnimate) {
                 $('body, html').animate({
-                        scrollTop: reqSectionPos
-                    },
+                    scrollTop: reqSectionPos
+                },
                     800);
             } else {
                 $('body, html').scrollTop(reqSectionPos);
@@ -804,7 +886,7 @@
         };
 
         var checkSection = function checkSection() {
-            $('.section').each(function() {
+            $('.section').each(function () {
                 var
                     $this = $(this),
                     topEdge = $this.offset().top - 80,
@@ -815,22 +897,22 @@
                         currentId = $this.data('section'),
                         reqLink = $('a').filter('[href*=\\#' + currentId + ']');
                     reqLink.closest('li').addClass('active').
-                    siblings().removeClass('active');
+                        siblings().removeClass('active');
                 }
             });
         };
 
-        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function(e) {
+        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
             e.preventDefault();
             showSection($(this).attr('href'), true);
         });
 
-        $(window).scroll(function() {
+        $(window).scroll(function () {
             checkSection();
         });
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             let alertShown = false;
 
             // Function to show the popup with custom options
@@ -841,7 +923,8 @@
                     html: '1. Untuk Mahasiswa yang akan mengambil sertifikat EPT, silahkan mengambil di Gedung K Lantai 3 (Pusat Bahasa) pada:<br>' +
                         '- Senin - Jumat : 08.00 - 16.00 WIB<br>' +
                         '- Sabtu : 08.00 - 12.00 WIB<br><br>' +
-                        '2. Jika kuota jadwal habis, silahkan menunggu sampai jadwal baru tersedia.',
+                        '2. Jadwal Baru akan dibuka setiap hari Sabtu.<br><br>' +
+                        '3. Jika kuota jadwal habis atau sudah penuh, silahkan menghubungi Lembaga Bahasa melalui email <a href="mailto:lembaga.bahasa@widyatama.ac.id?subject=Pengajuan%20List%20Kuota"> Lembaga Bahasa Universitas Widyatama.</a><br><br>',
                     showCloseButton: false, // Hide the close button initially
                     showClass: {
                         popup: 'swal2-show'
@@ -876,7 +959,7 @@
     <script>
         var btn = $('#button-scroll');
 
-        $(window).scroll(function() {
+        $(window).scroll(function () {
             if ($(window).scrollTop() > 300) {
                 btn.addClass('show');
             } else {
@@ -884,7 +967,7 @@
             }
         });
 
-        btn.on('click', function(e) {
+        btn.on('click', function (e) {
             e.preventDefault();
             $('html, body').animate({
                 scrollTop: 0
@@ -916,7 +999,7 @@
         let titleText = ["Welcome to Website", "Layanan Lembaga Bahasa", "Universitas Widyatama"];
         let counter = 0;
 
-        setInterval(function() {
+        setInterval(function () {
             document.title = titleText[counter % titleText.length];
             counter++;
         }, 2000);
