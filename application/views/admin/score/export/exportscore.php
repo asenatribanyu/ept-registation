@@ -11,6 +11,7 @@
 	</div>
 </header>
 
+
 <div class="container-modal d-flex">
 	<!-- Button trigger Filter modal -->
 	<button type="button" class="btn btn-info mx-3 mt-3" data-bs-toggle="modal" data-bs-target="#filterModal">

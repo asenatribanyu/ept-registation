@@ -7,8 +7,10 @@
     <meta name="description" content="">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>EPT | Lembaga Bahasa Widyatama</title>
-    <link rel="icon" sizes="76x76" href="https://ept-lembagabahasa.widyatama.ac.id/registration/assets/img/logo_widyatama.ico">
-    <link rel="icon" type="image/png" href="https://ept-lembagabahasa.widyatama.ac.id/registration/assets/img/logo_widyatama.ico">
+    <link rel="icon" sizes="76x76"
+        href="https://ept-lembagabahasa.widyatama.ac.id/registration/assets/img/logo_widyatama.ico">
+    <link rel="icon" type="image/png"
+        href="https://ept-lembagabahasa.widyatama.ac.id/registration/assets/img/logo_widyatama.ico">
     <!-- Bootstrap -->
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/custom/css/custom.css" rel="stylesheet">
@@ -18,7 +20,8 @@
     <link href='http://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -41,9 +44,6 @@
 
 
 <body onload="JavaScript:AutoRefresh(3000);">
-
-
-
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
         <div class="container">
@@ -83,23 +83,29 @@
                                     <br>
                                     <div class="row" id="view_page">
                                         <div class="icon-wrapper">
-                                            <i class="fas fa-exclamation-triangle fa-fade icon"></i>
+                                            <i class="fas fa-exclamation-triangle fa-fade icon" style="color:red;"></i>
                                             <p style="font-size:20px;">Information</p>
-                                            <i class="fas fa-exclamation-triangle fa-fade icon"></i>
+                                            <i class="fas fa-exclamation-triangle fa-fade icon" style="color:red;"></i>
                                         </div>
                                         <br><br>
                                         <p>
-                                            1. Untuk Mahasiswa yang akan mengambil sertifikat EPT, silahkan mengambil di Gedung K Lantai 3 (Pusat Bahasa) pada:<br>
+                                            1. Untuk Mahasiswa yang akan mengambil sertifikat EPT, silahkan mengambil di
+                                            Gedung K Lantai 3 (Pusat Bahasa) pada:<br>
                                             - Senin - Jumat : 08.00 - 16.00 WIB<br>
                                             - Sabtu : 08.00 - 12.00 WIB<br><br>
-                                            2. Jika kuota jadwal habis, silahkan menunggu sampai jadwal baru tersedia.<br><br>
-                                            3. Apabila mhs tidak mendapat kuota, mhs bisa mengajukan pendaftaran secara kolektif ke lembaga bahasa di gedung pustala loka lt.3 atau email lembaga.bahasa@widyatama.ac.id<br><br>
-                                            4. apabila mhs sudah mendaftar tapi tidak hadir pada hari pengetesan/ujian makanpembayaran dianggap hangus.
+                                            2. Jadwal Baru akan dibuka setiap hari Sabtu.<br><br>
+                                            3. Jika kuota jadwal habis, silahkan menghubungi Lembaga Bahasa melalui
+                                            email
+                                            <a
+                                                href="mailto:lembaga.bahasa@widyatama.ac.id?subject=Pengajuan%20List%20Kuota">
+                                                Lembaga Bahasa Universitas Widyatama.</a>
+                                            <br><br>
+                                            4. apabila mhs sudah mendaftar tapi tidak hadir pada hari pengetesan/ujian maka pembayaran dianggap hangus
                                         </p>
 
                                         <div class="col-lg-12">
                                             <div class="table-responsive table-light">
-                                                <?php if (isset($event)) : ?>
+                                                <?php if (isset($event)): ?>
                                                     <br>
                                                     <table class="table">
                                                         <thead>
@@ -114,8 +120,8 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?php if (count($event) > 0) : ?>
-                                                                <?php foreach ($event as $key => $ev) : ?>
+                                                            <?php if (count($event) > 0): ?>
+                                                                <?php foreach ($event as $key => $ev): ?>
                                                                     <tr class="inner-box">
                                                                         <th scope="row">
                                                                             <div class="text-center" class="event-date">
@@ -126,55 +132,70 @@
                                                                         </th>
                                                                         <td>
                                                                             <div class="text-center" class="event-time">
-                                                                                <h6><?= $ev->time; ?></h6>
+                                                                                <h6>
+                                                                                    <?= $ev->time; ?>
+                                                                                </h6>
                                                                             </div>
                                                                         </td>
                                                                         <td>
                                                                             <div class="text-center" class="event-wrap">
-                                                                                <h6><?= $ev->venue; ?></h6>
+                                                                                <h6>
+                                                                                    <?= $ev->venue; ?>
+                                                                                </h6>
                                                                             </div>
                                                                         </td>
                                                                         <td>
                                                                             <div class="text-center" class="r-no">
-                                                                                <span class="kuota" id="kuota"><?= $ev->sisa_kuota; ?></span>
+                                                                                <span class="kuota" id="kuota">
+                                                                                    <?= $ev->sisa_kuota; ?>
+                                                                                </span>
                                                                             </div>
                                                                         </td>
                                                                         <td>
                                                                             <div class="text-center" class="event-wrap">
-                                                                                <h6><?= $ev->type; ?></h6>
+                                                                                <h6>
+                                                                                    <?= $ev->type; ?>
+                                                                                </h6>
                                                                             </div>
                                                                         </td>
                                                                         <td>
                                                                             <?php
                                                                             if ($ev->sisa_kuota <= '0') {
-                                                                            ?>
+                                                                                ?>
                                                                                 <div class="text-center" class="primary-btn">
-                                                                                    <button class="btn btn-primary" disabled>Kuota Habis</button>
+                                                                                    <button class="btn btn-primary" disabled>Kuota
+                                                                                        Habis</button>
                                                                                 </div>
-                                                                            <?php
+                                                                                <?php
                                                                             } else { ?>
                                                                                 <div class="text-center" class="primary-btn">
-                                                                                    <a style="border-radius:20px; width:80%;" class="btn btn-primary register" href="<?= base_url('booking/register/' . base64_encode($ev->id_event)) ?>" id="register" name="register">Register</a>
+                                                                                    <a style="border-radius:20px; width:80%;"
+                                                                                        class="btn btn-primary register"
+                                                                                        href="<?= base_url('booking/register/' . base64_encode($ev->id_event)) ?>"
+                                                                                        id="register" name="register">Register</a>
                                                                                     <!-- <button style="border-radius:20px; width:80%;" class="btn btn-primary" onclick="register('<?= $ev->id_event; ?>')">Register</button> -->
                                                                                 </div>
-                                                                            <?php
+                                                                                <?php
                                                                             } ?>
                                                                         </td>
                                                                         <td>
                                                                             <div class="text-center" class="event-wrap">
-                                                                                <a href="<?php echo base_url(); ?>booking/detail/<?= $ev->id_event; ?>" button type="button" class="btn btn-info">Detail</a>
+                                                                                <a href="<?php echo base_url(); ?>booking/detail/<?= $ev->id_event; ?>"
+                                                                                    button type="button"
+                                                                                    class="btn btn-info">Detail</a>
                                                                             </div>
                                                                         </td>
                                                                     </tr>
                                                                 <?php endforeach; ?>
-                                                            <?php else : ?>
+                                                            <?php else: ?>
                                                                 <tr>
-                                                                    <td class="text-center" colspan="7">Jadwal Test Belum Tersedia. Mohon Bersabar &#128561;</td>
+                                                                    <td class="text-center" colspan="7">Jadwal Test Belum
+                                                                        Tersedia. Mohon Bersabar &#128561;</td>
                                                                 </tr>
                                                             <?php endif; ?>
                                                         </tbody>
                                                     </table>
-                                                <?php else : ?>
+                                                <?php else: ?>
                                                     <div id="no-data-message">Not jadwal found</div>
                                                 <?php endif; ?>
                                             </div>
@@ -187,7 +208,8 @@
                 </div>
                 <div class="footer">
                     <p class="text-light my-4 text-sm font-weight-normal">
-                        All rights reserved. Copyright © <script>
+                        All rights reserved. Copyright ©
+                        <script>
                             document.write(new Date().getFullYear())
                         </script> Created by <a href="">MBKM Team Widyatama</a>.
                     </p>
@@ -213,7 +235,7 @@
     <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/custom/js/booking.js" type="text/javascript"></script>
     <script type="text/javascript">
-        var doSth = function() {
+        var doSth = function () {
 
             var $md = $("#view_page");
             // Do something here
@@ -232,8 +254,8 @@
 
             if (isAnimate) {
                 $('body, html').animate({
-                        scrollTop: reqSectionPos
-                    },
+                    scrollTop: reqSectionPos
+                },
                     800);
             } else {
                 $('body, html').scrollTop(reqSectionPos);
@@ -242,7 +264,7 @@
         };
 
         var checkSection = function checkSection() {
-            $('.section').each(function() {
+            $('.section').each(function () {
                 var
                     $this = $(this),
                     topEdge = $this.offset().top - 80,
@@ -253,17 +275,17 @@
                         currentId = $this.data('section'),
                         reqLink = $('a').filter('[href*=\\#' + currentId + ']');
                     reqLink.closest('li').addClass('active').
-                    siblings().removeClass('active');
+                        siblings().removeClass('active');
                 }
             });
         };
 
-        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function(e) {
+        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
             e.preventDefault();
             showSection($(this).attr('href'), true);
         });
 
-        $(window).scroll(function() {
+        $(window).scroll(function () {
             checkSection();
         });
     </script>
@@ -311,5 +333,10 @@
         .icon {
             margin: 10px 0;
         }
+    }
+</style>
+<style>
+    a {
+        font-size: 15px;
     }
 </style>
