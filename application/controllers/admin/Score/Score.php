@@ -61,14 +61,36 @@ class Score extends CI_Controller
     }
 
     public function filter($id){
-        if($id <= 6 ){
-            $filter = 'fakultas';
-            $data['tbl_score'] = $this->Score_model->filter($filter, $id)->result();
-        }else{
-            $filter = 'prodi';
-            $data['tbl_score'] = $this->Score_model->filter($filter, $id)->result(); 
+        if($this->input->post('tanggal_awal') && $this->input->post('tanggal_akhir') && $this->input->post('skor_awal') && $this->input->post('skor_akhir')){
+            $tanggalAwal = $this->input->post('tanggal_awal');
+            $tanggalAkhir = $this->input->post('tanggal_akhir');
+            $skorAwal = $this->input->post('skor_awal');
+            $skorAkhir = $this->input->post('skor_akhir');
+        }elseif($this->input->post('tanggal_awal') && $this->input->post('tanggal_akhir')){
+            $tanggalAwal = $this->input->post('tanggal_awal');
+            $tanggalAkhir = $this->input->post('tanggal_akhir');
+            $skorAwal = NULL;
+            $skorAkhir = NULL;
+        }elseif($this->input->post('skor_awal') && $this->input->post('skor_akhir')){
+            $skorAwal = $this->input->post('skor_awal');
+            $skorAkhir = $this->input->post('skor_akhir');
+            $tanggalAwal = NULL;
+            $tanggalAkhir = NULL;
+        }
+        else{
+            $tanggalAwal = NULL;
+            $tanggalAkhir = NULL;
+            $skorAwal = NULL;
+            $skorAkhir = NULL;
         }
         
+    
+        $filter = ($id <= 6) ? 'fakultas' : 'prodi';
+    
+        $data['tbl_score'] = $this->Score_model->filter($filter, $id, $tanggalAwal, $tanggalAkhir, $skorAwal, $skorAkhir)->result();
+    
+        $data['filter'] = $filter;
+        $data['id'] = $id;
         $this->load->view('tampilan/header');
         $this->load->view('tampilan/navbar');
         $this->load->view('admin/score/filter/tabelscore', $data);
@@ -362,6 +384,15 @@ class Score extends CI_Controller
         }
     }
 
+    public function detail($id, $npm) {
+        $data['peserta'] = $this->Score_model->cari_data($id)->result();
+        $data['score'] = $this->Score_model->pengulangan($npm)->result();
+        $data['pengulangan'] = count($data['score']);
+        $this->load->view('tampilan/header');
+        $this->load->view('tampilan/navbar');
+        $this->load->view('admin/score/filter/detail',$data);
+        $this->load->view('tampilan/footer');
+}
     public function export_filter()
     {
         $jumlahData = $this->input->post('jumlahData');

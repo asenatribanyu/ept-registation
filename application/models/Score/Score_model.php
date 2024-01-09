@@ -12,29 +12,28 @@ class Score_model extends CI_Model
             ");
     }
 
-    public function filter($filter, $id){
-        if($filter == 'fakultas'){
-            $id = $id - 1;
-            return $this->db->query("
+    public function filter($filter, $id, $tanggalAwal = null, $tanggalAkhir = null, $skorAwal = null, $skorAkhir = null) {
+		$idOffset = ($filter == 'fakultas') ? 1 : 6;
+	
+		$query = "
 			SELECT * FROM tbl_score
-			INNER JOIN tbl_peserta ON tbl_score.npm=tbl_peserta.npm
-			INNER JOIN tbl_prodi ON tbl_peserta.id_prodi=tbl_prodi.id_prodi
-            INNER JOIN tbl_fakultas ON tbl_peserta.id_fakultas=tbl_fakultas.id_fakultas
-			WHERE tbl_peserta.id_$filter = $id
-			ORDER BY id_peserta
-            ");
-        }else{
-            $id = $id - 6;
-            return $this->db->query("
-			SELECT * FROM tbl_score
-			INNER JOIN tbl_peserta ON tbl_score.npm=tbl_peserta.npm
-			INNER JOIN tbl_prodi ON tbl_peserta.id_prodi=tbl_prodi.id_prodi
-            INNER JOIN tbl_fakultas ON tbl_peserta.id_fakultas=tbl_fakultas.id_fakultas
-			WHERE tbl_peserta.id_$filter = $id
-			ORDER BY id_peserta
-            ");
-        }
-    }
+			LEFT JOIN tbl_peserta ON tbl_score.npm = tbl_peserta.npm
+			LEFT JOIN tbl_prodi ON tbl_peserta.id_prodi = tbl_prodi.id_prodi
+			LEFT JOIN tbl_fakultas ON tbl_peserta.id_fakultas = tbl_fakultas.id_fakultas
+			WHERE tbl_peserta.id_$filter = ($id - $idOffset)
+		";
+	
+		if ($tanggalAwal !== null && $tanggalAkhir !== null) {
+			$query .= " AND STR_TO_DATE(tbl_score.tanggal, '%d %M %Y') BETWEEN '$tanggalAwal' AND '$tanggalAkhir'";
+		}
+		if ($skorAwal !== null && $skorAkhir !== null) {
+			$query .= " AND tbl_score.score BETWEEN '$skorAwal' AND '$skorAkhir'";
+		}
+	
+		$query .= " ORDER BY id_peserta";
+	
+		return $this->db->query($query);
+	}
 
 	public function export_filter($jumlahData, $startYear, $endYear)
 	{
@@ -74,4 +73,27 @@ class Score_model extends CI_Model
         $this->db->where_in('id_score', $id_score);
         $this->db->delete('tbl_score');
     }
+
+	public function cari_data($id){
+
+		$query = "
+        SELECT * FROM tbl_score
+        INNER JOIN tbl_peserta ON tbl_score.npm = tbl_peserta.npm
+        INNER JOIN tbl_prodi ON tbl_peserta.id_prodi = tbl_prodi.id_prodi
+        INNER JOIN tbl_fakultas ON tbl_peserta.id_fakultas = tbl_fakultas.id_fakultas
+        WHERE tbl_score.id_score = ?
+        LIMIT 1";
+
+    return $this->db->query($query, array($id));
+
+	}
+
+	public function pengulangan($npm){
+		return $this->db->query("
+		SELECT * FROM tbl_score
+        WHERE tbl_score.npm = $npm
+		ORDER BY STR_TO_DATE(tanggal, '%d %M %Y')
+            ");
+
+	}
 }

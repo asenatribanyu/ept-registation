@@ -1,5 +1,5 @@
 <header class="header-2">
-	<div class="page-header min-vh-75 relative" style="background-image: url('<?php echo base_url() ?>assets/images/bg2.jpg')">
+	<div class="page-header min-vh-50 relative" style="background-image: url('<?php echo base_url() ?>assets/images/bg2.jpg')">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-7 text-center mx-auto">
@@ -11,99 +11,45 @@
 	</div>
 </header>
 
-	<!-- Button trigger modal -->
-	<button type="button" class="btn btn-info mx-3 mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-		Export
-	</button>
-
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">Filter Data Score</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<form action="<?= base_url('admin/score/score/export_filter'); ?>" method="POST">
-						<div class="mb-3">
-							<label for="jdata" class="form-label">Jumlah Data</label>
-							<input type="number" class="form-control border p-1" id="jdata" name="jumlahData">
+<div class="card card-body blur shadow-blur mx-2 mx-md-3 mt-n6"> 
+	<div class="con-chart mx-2 mx-md-3 mt-1">
+		<div class="chartfilter d-flex">
+			<form id="tanggalForm" class="datefilter d-flex align-items-end" action="<?php echo base_url(); ?>admin/score/score/filter/<?php echo $id ?>" method="post">
+				<div class="datestart px-1">
+						<h5>Tanggal Awal</h5>
+						<div class="input-group input-group-outline mb-3">
+							<input type="date" name="tanggal_awal" class="form-control rounded-2 border-success-emphasis">
 						</div>
-						<div class="mb-3">
-							<!-- <label for="jscore" class="form-label">Jumlah Score</label> -->
-							<input type="hidden" class="form-control border p-1" id="jscore" name="jumlahScore">
-						</div>
-
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="startYear">Tahun Awal</label>
-								<select class="form-control border p-1" id="startYear" name="startYear">
-								<?php
-								// Ambil tahun saat ini
-								$currentYear = date("Y");
-
-								// Atur rentang tahun yang diinginkan (contoh dari tahun 2000 hingga tahun saat ini)
-								$startYear = 2000;
-
-								// Loop untuk membuat pilihan tahun
-								for ($year = $currentYear; $year >= $startYear; $year--) {
-									echo "<option value='$year'>$year</option>";
-								}
-								?>
-								</select>
-							</div>
-							<div class="form-group col-md-6">
-								<label for="endYear">Tahun Akhir</label>
-								<select class="form-control border p-1" id="endYear" name="endYear">
-								<?php
-								// Loop untuk membuat pilihan tahun (sama seperti sebelumnya)
-								for ($year = $currentYear; $year >= $startYear; $year--) {
-									echo "<option value='$year'>$year</option>";
-								}
-								?>
-								</select>
-							</div>
-						</div>
-					
-					<!-- <div class="btn-group dropend">
-						<button type="button" class="btn rounded-3 btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-							Jumlah Data
-						</button>
-						<ul class="dropdown-menu scrollable-menu">
-							<li><a class="dropdown-item" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Action two</a></li>
-							<li><a class="dropdown-item" href="#">Action three</a></li>
-						</ul>
-						<button type="button" class="btn rounded-3 btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-							Jumlah Score
-						</button>
-						<ul class="dropdown-menu scrollable-menu">
-							<li><a class="dropdown-item" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Action two</a></li>
-							<li><a class="dropdown-item" href="#">Action three</a></li>
-						</ul>
-						<button type="button" class="btn rounded-3 btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-							Tahun
-						</button>
-						<ul class="dropdown-menu scrollable-menu">
-							<li><a class="dropdown-item" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Action two</a></li>
-							<li><a class="dropdown-item" href="#">Action three</a></li>
-						</ul>
-					</div> -->
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-info">Save changes</button>
+				<div class="dateend px-1">
+						<h5>Tanggal Akhir</h5>
+						<div class="input-group input-group-outline mb-3">
+							<input type="date" name="tanggal_akhir" class="form-control rounded-2 border-success-emphasis">
+						</div>
 				</div>
-				</form> 
-			</div>
+
+				<div class="scoremin px-1">
+					<h5>Score Awal</h5>
+					<div class="input-group input-group-outline mb-3">
+						<input name="skor_awal" type="number" class="form-control border-success-emphasis" id="" placeholder="Masukkan score awal">
+					</div>
+				</div>
+				<div class="scoremax px-1">
+					<h5>Score Akhir</h5>
+					<div class="input-group input-group-outline mb-3">
+						<input name="skor_akhir" type="number" class="form-control border-success-emphasis" id="" placeholder="Masukkan score akhir">
+					</div>
+				</div>
+
+				<button type="submit" class="btn mx-1 btn-info">Save changes</button>
+			</form>
 		</div>
+		
+		<div class="chart" id="chartContainer" style="height: 300px; border-radius: 10px;"></div>
 	</div>
+</div>
 
-<div class="card card-body blur shadow-blur mx-2 mx-md-3">
-	
+<div class="card card-body blur shadow-blur mx-2 mx-md-3 mt-4">
 	<div class="data-tables datatable-dark">
 		<table class="table table-bordered table-striped table-hover" id="dataTable" style="width:100%">
 			<thead>
@@ -142,14 +88,44 @@
 	</div>
 </div>
 
-<style>
-	/* .dropend {
-		flex-direction: column;
-	}
+<script type="text/javascript" src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 
-	.scrollable-menu {
-		height: auto;
-		max-height: 100px;
-		overflow-x: hidden;
-    } */
+<script type="text/javascript">
+    $(function() {
+        $('#datepicker').datepicker();
+    });
+</script>
+
+<script type="text/javascript">
+	<?php
+		$dataPoints = array();
+		$no = 1;
+		foreach ($tbl_score as $s) {
+
+			$x = $s->nama;
+			$y = $s->score;
+			$dataPoints[] = array("label" =>$x, "y" => $y  );
+		}
+	?>
+	var DataPoints = <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>;
+	window.onload = function () {
+		var chart = new CanvasJS.Chart("chartContainer",
+		{
+		title: {
+			text: "Scores EPT"
+		},
+			data: [
+		{
+			type: "area",
+			dataPoints: DataPoints
+		}
+		]
+		});
+
+		chart.render();
+	}
+</script>
+
+<style>
+
 </style>
