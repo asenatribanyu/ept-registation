@@ -184,7 +184,7 @@
                       </div>
                     </ul>
                   </li>
-                <?php endif; ?>
+                
 
                 <li class="nav-item dropdown dropdown-hover mx-2">
                   <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs" data-bs-toggle="dropdown" aria-expanded="false">
@@ -205,7 +205,7 @@
                     </div>
                   </ul>
                 </li>
-
+                <?php endif; ?>
                   <li class="nav-item my-auto ms-3 ms-lg-3">
                     <a href="#" onclick="logout()" class="btn btn-sm bg-gradient-primary mb-0 me-1 mt-2 mt-md-0">Logout</a>
                   </li>
