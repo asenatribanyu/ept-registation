@@ -32,7 +32,7 @@ class Search extends CI_Controller
     $data = $this->db->get_where('tbl_score', array('id_score' => $id))->row();
 
     // Adjust the size parameter for the QR code
-    $params['data'] = 'localhost:8000/certificate/certificate/' . $data->id_score;
+    $params['data'] = base_url() . 'certificate/certificate/' . $data->id_score;
     $params['level'] = 'H';
     $params['size'] = 4; // Adjust the size to 4
     $params['savename'] = 'assets/sertifikat/' . 'qr.png';
