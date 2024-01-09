@@ -361,4 +361,62 @@ class Score extends CI_Controller
             redirect('admin/score/score');
         }
     }
+
+    public function export_filter()
+    {
+        $jumlahData = $this->input->post('jumlahData');
+        $jumlahScore = $this->input->post('jumlahScore');
+        $startYear = $this->input->post('startYear');
+        $endYear = $this->input->post('endYear');
+
+        $data['score'] = $this->Score_model->export_filter($jumlahData, $startYear, $endYear)->result();
+
+
+        $object = new PHPExcel();
+
+        $object->getProperties()->setTitle('EPT Widyatama');
+
+        $object->setActiveSheetIndex(0);
+
+        $object->getActiveSheet()->setCellValue('A1','No');
+        $object->getActiveSheet()->setCellValue('B1','Tanggal Tes');
+        $object->getActiveSheet()->setCellValue('C1','Nama Mahasiswa');
+        $object->getActiveSheet()->setCellValue('D1','NPM');
+        $object->getActiveSheet()->setCellValue('E1','Fakultas');
+        $object->getActiveSheet()->setCellValue('F1','Prodi');
+        $object->getActiveSheet()->setCellValue('G1','Sec1');
+        $object->getActiveSheet()->setCellValue('H1','Sec2');
+        $object->getActiveSheet()->setCellValue('I1','Sec3');
+        $object->getActiveSheet()->setCellValue('J1','Score');
+        
+        $baris = 2;
+        $no = 1;
+
+        foreach($data['score'] as $score){
+            $object->getActiveSheet()->setCellValue('A'.$baris, $no++);
+            $object->getActiveSheet()->setCellValue('B'.$baris, $score->tanggal);
+            $object->getActiveSheet()->setCellValue('C'.$baris, $score->nama);
+            $object->getActiveSheet()->setCellValue('D'.$baris, $score->npm);
+            $object->getActiveSheet()->setCellValue('E'.$baris, $score->nama_fakultas);
+            $object->getActiveSheet()->setCellValue('F'.$baris, $score->nama_prodi);
+            $object->getActiveSheet()->setCellValue('G'.$baris, $score->sec1);
+            $object->getActiveSheet()->setCellValue('H'.$baris, $score->sec2);
+            $object->getActiveSheet()->setCellValue('I'.$baris, $score->sec3);
+            $object->getActiveSheet()->setCellValue('J'.$baris, $score->score);
+            
+            $baris++;
+        }
+
+        $filename="EPT Widyatama".'.ods';
+
+        $object->getActiveSheet()->setTitle("EPT Widyatama");
+
+        header('Content-Type: application/vnd.oasis.opendocument.spreadsheet');
+        header('Content-Disposition:attachment;filename="'.$filename.'"');
+        header('Cache-Control:max-age=0');
+
+        $writer=PHPExcel_IOFactory::createWriter($object, 'OpenDocument');
+        $writer->save('php://output');
+
+    }
 }
