@@ -67,16 +67,20 @@ class Search extends CI_Controller
 
     // Calculate text position
     $originalDate = DateTime::createFromFormat('d F Y', $data->tanggal);
-
+    if($originalDate === false){
+        $originalDate = DateTime::createFromFormat('Y-m-d', $data->tanggal);
+    }
+    $date = $originalDate->format('d F Y');
     // Add 2 years to the original date
     $newDate = $originalDate->add(new DateInterval('P2Y'))->format('d F Y');
+    
 
     // Concatenate the new date with the text
     $text1 = "THIS IS TO CERTIFY THAT";
     $text2 = $nama;
     $text3 ="Student ID No. : " . $data->npm ;
     $text4 ="has taken the EPT - Utama on";
-    $text5 = $data->tanggal;
+    $text5 = $date;
     $text6 = "With the following result:";
     $text7 = "Listening : " . $data->sec1 ;
     $text8 = "Structure : " . $data->sec2 ;

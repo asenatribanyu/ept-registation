@@ -17,22 +17,23 @@ class Score_model extends CI_Model
 	
 		$query = "
 			SELECT * FROM tbl_score
-			LEFT JOIN tbl_peserta ON tbl_score.npm = tbl_peserta.npm
-			LEFT JOIN tbl_prodi ON tbl_peserta.id_prodi = tbl_prodi.id_prodi
-			LEFT JOIN tbl_fakultas ON tbl_peserta.id_fakultas = tbl_fakultas.id_fakultas
+			Inner JOIN tbl_peserta ON tbl_score.npm = tbl_peserta.npm
+			Inner JOIN tbl_prodi ON tbl_peserta.id_prodi = tbl_prodi.id_prodi
+			Inner JOIN tbl_fakultas ON tbl_peserta.id_fakultas = tbl_fakultas.id_fakultas
 			WHERE tbl_peserta.id_$filter = ($id - $idOffset)
 		";
 	
 		if ($tanggalAwal !== null && $tanggalAkhir !== null) {
-			$query .= " AND STR_TO_DATE(tbl_score.tanggal, '%d %M %Y') BETWEEN '$tanggalAwal' AND '$tanggalAkhir'";
+			$query .= " AND (STR_TO_DATE(tbl_score.tanggal, '%d %M %Y') BETWEEN '$tanggalAwal' AND '$tanggalAkhir'
+                OR STR_TO_DATE(tbl_score.tanggal, '%Y-%m-%d') BETWEEN '$tanggalAwal' AND '$tanggalAkhir')";
 		}
 		if ($skorAwal !== null && $skorAkhir !== null) {
 			$query .= " AND tbl_score.score BETWEEN '$skorAwal' AND '$skorAkhir'";
 		}
 	
-		$query .= " ORDER BY id_peserta";
-	
-		return $this->db->query($query);
+		$query .= " GROUP by id_score
+					ORDER BY tanggal";
+		return array('query' => $query);
 	}
 
 	public function export_filter($jumlahData, $startYear, $endYear)

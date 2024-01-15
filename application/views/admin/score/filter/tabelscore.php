@@ -104,10 +104,10 @@
 	<?php
 		$dataPoints = array();
 		$no = 1;
-		foreach ($tbl_score as $s) {
+		foreach ($jumlah_peserta_per_tanggal as $tanggal => $jumlah_peserta) {
 
-			$x = $s->nama;
-			$y = $s->score;
+			$x = $tanggal;
+			$y = $jumlah_peserta;
 			$dataPoints[] = array("label" =>$x, "y" => $y  );
 		}
 	?>

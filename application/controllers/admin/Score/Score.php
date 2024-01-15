@@ -87,7 +87,26 @@ class Score extends CI_Controller
     
         $filter = ($id <= 6) ? 'fakultas' : 'prodi';
     
-        $data['tbl_score'] = $this->Score_model->filter($filter, $id, $tanggalAwal, $tanggalAkhir, $skorAwal, $skorAkhir)->result();
+        $queryResult = $this->Score_model->filter($filter, $id, $tanggalAwal, $tanggalAkhir, $skorAwal, $skorAkhir);
+
+        // Access the queries from the result
+        $query = $queryResult['query'];
+
+        // Execute the queries and get the results
+        $data['tbl_score'] = $this->db->query($query)->result();
+
+        $jumlah_peserta_per_tanggal = array();
+
+        foreach ($data['tbl_score'] as $row) {
+            $tanggal = $row->tanggal;
+            if (!isset($jumlah_peserta_per_tanggal[$tanggal])) {
+                $jumlah_peserta_per_tanggal[$tanggal] = 1;
+            } else {
+                $jumlah_peserta_per_tanggal[$tanggal]++;
+            }
+        }
+
+        $data['jumlah_peserta_per_tanggal'] = $jumlah_peserta_per_tanggal;
     
         $data['filter'] = $filter;
         $data['id'] = $id;
