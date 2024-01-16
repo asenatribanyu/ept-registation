@@ -89,6 +89,11 @@
                     <div class="card border-white" style="width: 300px; border-radius: 10px;">
                     <?php foreach($score as $score):?>
                         <?php $dataTanggal = DateTime::createFromFormat('d F Y', $score->tanggal);
+                            if($dataTanggal){
+                                $dataTanggal;
+                            }else{
+                                $dataTanggal = DateTime::createFromFormat('Y-m-d', $score->tanggal);
+                            }
                             $currentDate = new DateTime();
 
                             // Calculate the difference in years
