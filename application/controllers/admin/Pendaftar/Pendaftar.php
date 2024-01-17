@@ -52,9 +52,12 @@ class Pendaftar extends CI_Controller
 
 		$config['attributes'] = array('class' => 'page-link');
 
+        $search = $this->input->post('search');
+
 		$this->pagination->initialize($config);
 		$page = $this->uri->segment(5);
-		$data['records'] = $this->Pendaftar_model->get_records($config['per_page'], $page);
+		$data['records'] = $this->Pendaftar_model->get_records($config['per_page'], $page, $search);
+        $data['search'] = $search;
 		$data['pagination'] = $this->pagination->create_links();
 
         // $data['tbl_registrant'] = $this->Pendaftar_model->getAll()->result();

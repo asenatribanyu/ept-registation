@@ -16,7 +16,7 @@
 				<!-- Fitur Search -->
 				<form action="<?= base_url('admin/peserta/peserta/index'); ?>" method="post">
 					<div class="input-group mb-3 gap-2">
-						<input type="text" name="search" class="form-control p-2" style="border: 1px solid #808080; height: 40px; border-radius: 5px;" placeholder="Search" name="keyword" autocomplete="off" >
+						<input type="text" name="search" class="form-control p-2" style="border: 1px solid #808080; height: 40px; border-radius: 5px;" placeholder="Search" name="search" autocomplete="off" >
 						<button class="btn btn-success" type="submit" name="submit" style="border-radius: 5px">search</button>
 					</div>
 				</form>

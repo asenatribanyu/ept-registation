@@ -51,8 +51,15 @@ class Score_model extends CI_Model
             ");
 	}
 
-    public function get_records($limit, $offset) {
+    public function get_records($limit, $offset, $search) {
 		$this->db->from('tbl_score');
+
+		if (!empty($search)) {
+			// Add a WHERE clause to filter results by name or npm
+			$this->db->like('tbl_score.nama', $search);
+			$this->db->or_like('tbl_score.npm', $search);
+		}
+
 		$this->db->limit($limit, $offset);
 		$query = $this->db->get();
 	

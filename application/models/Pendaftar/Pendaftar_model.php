@@ -2,12 +2,18 @@
 
 class Pendaftar_model extends CI_Model
 {
-    public function get_records($limit, $offset) {
+    public function get_records($limit, $offset, $search) {
         $this->db->from('tbl_registrant');
         $this->db->join('tbl_event', 'tbl_registrant.id_event = tbl_event.id_event');
         $this->db->join('tbl_peserta', 'tbl_registrant.id_peserta = tbl_peserta.id_peserta');
         $this->db->join('tbl_fakultas', 'tbl_peserta.id_fakultas = tbl_fakultas.id_fakultas');
 		$this->db->join('tbl_prodi', 'tbl_peserta.id_prodi = tbl_prodi.id_prodi');
+
+        if (!empty($search)) {
+			// Add a WHERE clause to filter results by name or npm
+			$this->db->like('tbl_peserta.nama_peserta', $search);
+			$this->db->or_like('tbl_peserta.npm', $search);
+		}
 		$this->db->limit($limit, $offset);
 		$query = $this->db->get();
 	
